@@ -1,0 +1,104 @@
+.news-block {
+	padding-top: 60px;
+	color: #eee;
+}
+.news-block h1 {
+	margin-top: 40px;
+	margin-bottom: 60px;
+	font-size: 40px;
+	overflow-x: hidden;
+	text-shadow: 1px 1px 2px #FFB300;
+	text-align: center;
+}
+.news-block h1 span {
+	position: relative;
+}
+.news-block h1 span::before, .news-block h1 span::after {
+	position: absolute;
+	top: 50%;
+	content: '';
+	width: 100px;
+	height: 2px;
+	background-color: #FFB300;
+}
+.news-block h1 span::before {
+	left: -120px;
+	animation-name: str;
+	animation-duration: 1s;
+	animation-timing-function: cubic-bezier(1,0.2);
+}
+.news-block h1 span::after {
+	right: -120px;
+	animation-name: str2;
+	animation-duration: 1s;
+	animation-timing-function: cubic-bezier(1,0.2);
+}
+@keyframes str {
+	from {
+		left: -100vw;
+	}
+	to {
+		left: -120px;
+	}
+}
+@keyframes str2 {
+	from {
+		right: -100vw;
+	}
+	to {
+		right: -120px;
+	}
+}
+.content {
+	margin-left: 17%;
+	width: 66%;
+}
+.content .flex-container {
+	margin-top: 40px;
+	margin-bottom: 100px;
+	align-items: stretch;
+}
+.content .flex-container img {
+	width: auto;
+	height: 240px;
+	border-radius: 8px;
+	max-width: 50%;
+}
+.content .flex-container h2 {
+	margin-bottom: 30px;
+	font-size: 24px;
+}
+.content .flex-container div {
+	font-size: 16px;
+	width: 50%;
+}
+.content .flex-container div>div {
+	width: 74%;
+	position: relative;
+}
+.content .flex-container div a {
+	display: block;
+	margin-top: 24px;
+	color: #90CAF9;
+	position: absolute;
+	left: 0;
+	bottom: -40px;
+}
+.content .flex-container footer {
+	position: absolute;
+	right: 0;
+	bottom: -40px;
+	font-size: 14px;
+}
+.pagination {
+	text-align: center;
+	padding-bottom: 40px;
+}
+.pagination span {
+	padding-left: 8px;
+	padding-right: 8px;
+	cursor: pointer;
+}
+.active-pag {
+	color: #FFB300;
+}

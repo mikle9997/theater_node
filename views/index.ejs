@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+
+	<title>Template Theater</title>
+
+	<link rel="shortcut icon" href="images/theater.png" type="image/x-icon">
+
+	<link rel="stylesheet" href="stylesheets/main.css">
+	<link rel="stylesheet" href="stylesheets/media.css">
+	<link rel="stylesheet" href="stylesheets/slideshow.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+<body data-page="index">
+	<div id="opening-circle"></div>
+	<div id="resp-menu"></div>
+	<div class="header">
+		<div class="logo-block">
+			<a href="/">
+				<img src="images/theater.png" alt="logo">
+				<p>Молодежный театр ИКНТ</p>
+			</a>
+			<div id="collapse-menu-button">
+				<span>≡</span>
+			</div>
+		</div>
+		<div class="menu">
+			<div class="menu-el"><a href="index.php">Главная</a></div>
+			<div class="menu-el"><a href="view/afish.php">Афиша</a></div>
+			<div class="menu-el"><a href="view/truppa.php">Труппа</a></div>
+			<div class="menu-el"><a href="view/chulanchik.php">Чуланчик</a></div>
+		</div>
+	</div>
+	<div id="scroll-progress"></div>
+	<div class="first-block block">
+		<div class="slide fade">
+			<h2>Молодежный театр ИКНТ</h2>
+		</div>
+		<div class="slide fade">
+			<h2>Дата основания 2010 год</h2>
+		</div>
+		<div class="slide fade">
+			<h2>Какая-то постановка</h2>
+		</div>
+		<div class="slide fade">
+			<h2>Свободные места</h2>
+		</div>
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  	<a class="next" onclick="plusSlides(1)">&#10095;</a>
+  	<div class="dots">
+		  <div>
+		  	<span onclick="currentSlide(1)"></span> 
+		  	<span onclick="currentSlide(2)"></span> 
+		  	<span onclick="currentSlide(3)"></span>
+		  	<span onclick="currentSlide(4)"></span>
+		  </div>
+		</div>
+	</div>
+	<div class="second-block block">
+		<div class="soon-scene animating">
+			<svg>
+				<polygon points="500,0 500,400 400,400" style="fill:#f1f1f1;stroke:#f1f1f1;stroke-width:1" />
+			</svg>
+			<div>
+				<h2>Готовится к постановке</h2>
+				<h4>Кентервильское приведение</h4>
+				<p>Совсем скоро мы будем готовы презентовать Вам наш новый спектакль, который Вам обязательно понравится.</p>
+			</div>
+		</div>
+	</div>
+	<div class="third-block block">
+		<h2 class="head-text"><a href="view/afish.php">ПОСЛЕДНИЕ ВЫСТУПЛЕНИЯ</a></h2>
+		<div class="flex-container">
+			<?php 
+				$blocks = get_all_afish();
+
+				for ($i = 0; $i < 3; $i++) { 
+					$myrow = mysql_fetch_array($blocks) ?>
+
+					<div class="tab animating">
+						<a href="view/afish-page.php?q=<?php echo $myrow['id']?>"><img src='<?php echo $myrow['img']?>' alt="img">
+							<div>
+								<h3><?php echo $myrow['title']?></h3>
+								<hr>
+								<p data-cut><?php echo $myrow['text']?></p>
+								<p class="pod">Подробнее...</p>
+							</div>
+							<footer><i class="far fa-clock"></i> <?php echo $myrow['date']?></footer>
+						</a>
+					</div>
+
+				<?php }
+			 ?>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="contact-footer">
+			<p>Наши контакты</p>
+			<a href="tel:8-800-555-3535">8-800-555-3535</a>
+			<a href="mailto:theater@theatermail.ru">theater@theatermail.ru</a>
+		</div>
+		<div class="icons-footer">
+			<a href="https://vk.com"><i class="fab fa-vk"></i></a>
+			<a href="https://facebook.com"><i class="fab fa-facebook-square"></i></a>
+		</div>
+	</div>
+
+	<script src="javascripts/script.js"></script>
+	<script src="javascripts/slideshow.js"></script>
+</body>
+</html>
