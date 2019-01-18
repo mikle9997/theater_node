@@ -1,6 +1,6 @@
 <% include meta %>
-	<link rel="stylesheet" href="stylesheets/gallery.css">
-	<link rel="stylesheet" href="stylesheets/modalIMG.css">
+	<link rel="stylesheet" href="/stylesheets/gallery.css">
+	<link rel="stylesheet" href="/stylesheets/modalIMG.css">
 	<title>Галерея</title>
 	<% include header %>
 
@@ -13,7 +13,7 @@
 					$a = scandir($dir);
 					for ($i=2; $i < count($a); $i += 3) { ?>
 						<div onclick="currentSlide(this)">
-							<img src="images/<?php echo $a[$i]?>" alt="img">
+							<img src="/images/<?php echo $a[$i]?>" alt="img">
 							<p><i class="fas fa-search-plus"></i></p>
 						</div>
 					<?php }
@@ -25,7 +25,7 @@
 					$a = scandir($dir);
 					for ($i=3; $i < count($a); $i += 3) { ?>
 						<div onclick="currentSlide(this)">
-							<img src="images/<?php echo $a[$i]?>" alt="img">
+							<img src="/images/<?php echo $a[$i]?>" alt="img">
 							<p><i class="fas fa-search-plus"></i></p>
 						</div>
 					<?php }
@@ -37,7 +37,7 @@
 					$a = scandir($dir);
 					for ($i=4; $i < count($a); $i += 3) { ?>
 						<div onclick="currentSlide(this)">
-							<img src="images/<?php echo $a[$i]?>" alt="img">
+							<img src="/images/<?php echo $a[$i]?>" alt="img">
 							<p><i class="fas fa-search-plus"></i></p>
 						</div>
 					<?php }
@@ -53,6 +53,6 @@
 		<div class="next" onclick="changeSlide(1)">&#10095;</div>
 	</div>
 
-	<script src="javascripts/script.js"></script>
-	<script src="javascripts/modalIMG.js"></script>
+	<script src="/javascripts/script.js"></script>
+	<script src="/javascripts/modalIMG.js"></script>
 	<% include footer %>

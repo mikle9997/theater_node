@@ -1,0 +1,16 @@
+<% include meta %>
+	<link rel="stylesheet" href="/stylesheets/trupe.css">
+	<title>Труппа</title>
+	<% include header %>
+	<div class="actors-wrapper">
+		<% troupe.forEach( function (person) { %>
+			<div class="actor-card">
+				<div class="card-img" data-src='\<%= person.img %>'></div>
+				<p><%= person.name %> <%= person.secname %> </p>
+				<p><%= person.role %></p>
+			</div>
+		<% }); %>
+	</div>
+
+	<script src="/javascripts/script.js"></script>
+<% include footer %>

@@ -1,4 +1,3 @@
-<!-- <?php require 'db/db.php'; ?> -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -29,9 +28,9 @@
 		</div>
 		<div class="menu">
 			<div class="menu-el"><a href="/">Главная</a></div>
-			<div class="menu-el"><a href="/afisha">Афиша</a></div>
-			<div class="menu-el"><a href="view/truppa.php">Труппа</a></div>
-			<div class="menu-el"><a href="view/chulanchik.php">Чуланчик</a></div>
+			<div class="menu-el"><a href="/news">Афиша</a></div>
+			<div class="menu-el"><a href="/troupe">Труппа</a></div>
+			<div class="menu-el"><a href="/chulanchik">Чуланчик</a></div>
 		</div>
 	</div>
 	<div id="scroll-progress"></div>
@@ -72,28 +71,21 @@
 		</div>
 	</div>
 	<div class="third-block block">
-		<h2 class="head-text"><a href="view/afish.php">ПОСЛЕДНИЕ ВЫСТУПЛЕНИЯ</a></h2>
+		<h2 class="head-text"><a href="afisha">ПОСЛЕДНИЕ ВЫСТУПЛЕНИЯ</a></h2>
 		<div class="flex-container">
-			<?php 
-				$blocks = get_all_afish();
-
-				for ($i = 0; $i < 3; $i++) { 
-					$myrow = mysql_fetch_array($blocks) ?>
-
-					<div class="tab animating">
-						<a href="view/afish-page.php?q=<?php echo $myrow['id']?>"><img src='<?php echo $myrow['img']?>' alt="img">
+			<% news.forEach( function (post) { %>
+				<div class="tab animating">
+						<a href="news-page/<%= post.id %>"><img src="<%= post.img %>" alt="img">
 							<div>
-								<h3><?php echo $myrow['title']?></h3>
+								<h3><%= post.title %></h3>
 								<hr>
-								<p data-cut><?php echo $myrow['text']?></p>
+								<p data-cut><%= post.text %></p>
 								<p class="pod">Подробнее...</p>
 							</div>
-							<footer><i class="far fa-clock"></i> <?php echo $myrow['date']?></footer>
+							<footer><i class="far fa-clock"></i> <%= moment(post.date).format('DD-MM-YYYY') %></footer>
 						</a>
 					</div>
-
-				<?php }
-			 ?>
+			<% }); %>
 		</div>
 	</div>
 	<div class="footer">

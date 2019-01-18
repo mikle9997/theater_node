@@ -1,20 +1,24 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const db = require('./db');
+const moment = require('moment');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', async function(req, res, next) {
+  const news = await db.getAfishaThreeLast();
+  res.render('index', { news, moment });
 });
 
-router.get('/afisha', function(req, res, next) {
-  res.render('partition/afisha', { title: 'Express' });
+router.get('/news', async function(req, res, next) {
+  const news = await db.getAfishaAll();
+  res.render('partition/afisha', { news, moment });
 });
 
-router.get('/truppa', function(req, res, next) {
-  res.render('partition/truppa', { title: 'Express' });
+router.get('/troupe', async function(req, res, next) {
+  const troupe = await db.getTroupe();
+  res.render('partition/troupe', { troupe });
 });
 
-router.get('/chulanchik', function(req, res, next) {
+router.get('/chulanchik', async function(req, res, next) {
   res.render('partition/chulanchik', { title: 'Express' });
 });
 

@@ -4,7 +4,7 @@ body {
 	padding: 0;
 	color: #333;
 	font-family: 'Roboto', sans-serif;
-	background: #333 url(../img/background.png) center center no-repeat;
+	background: #333 url(../images/background.png) center center no-repeat;
 	background-attachment: fixed;
 	-webkit-background-size: cover;
 	background-size: cover;
@@ -230,7 +230,7 @@ div.first-block {
 	width: 800px;
 	height: 400px;
 	box-shadow: 4px 4px 12px rgba(0,0,0,0.4);
-	background: url(../images/gallery1.jpg);
+	background: url(../images/media/afisha/dance.jpg);
 	-webkit-background-size: cover;
 	background-size: cover;
 	display: -webkit-flex;

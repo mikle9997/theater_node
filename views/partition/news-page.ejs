@@ -1,0 +1,16 @@
+<% include meta %>
+	<link rel="stylesheet" href="/stylesheets/afish-page.css">
+	<title><%= post.title %></title>
+<% include header %>
+	<div class="afish-page-wrapper">
+		<div class="afish-page">
+			<h1><%= post.title %><br><span><i class="far fa-clock"></i><%= moment(post.date).format('DD-MM-YYYY') %></span></h1>
+			<div class="afish-image">
+				<img src="/<%= post.img %>" alt="img">
+			</div>
+			<p><%= post.text %> hbjln</p>
+		</div>
+	</div>
+
+	<script src="/javascripts/script.js"></script>
+<% include footer %>
