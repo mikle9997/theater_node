@@ -1,10 +1,10 @@
-<?php require 'header-admin.php'; ?>
+<% include header-admin %>
 	<div class="section-1">
 			<ul class="list">
-				<li><a href="../index.php"><i class="th-home"></i> Главная</a></li>
-				<li class="active"><a href="list.php"><i class="th-edit"></i> Добавление</a></li>
-				<li><a href="actors-list.php"><i class="th-group"></i> Актеры</a></li>
-				<li><a href="editimg.php"><i class="th-picture"></i> Медиафайлы</a></li>
+				<li><a href="/admin"><i class="th-home"></i> Главная</a></li>
+				<li class="active"><a href="/admin/news"><i class="th-edit"></i> Добавление</a></li>
+				<li><a href="/admin/actors-list"><i class="th-group"></i> Актеры</a></li>
+				<li><a href="/admin/editimg"><i class="th-picture"></i> Медиафайлы</a></li>
 			</ul>
 		</div>
 		<div class="section-2" data-page="afish-editing">
@@ -15,7 +15,7 @@
 									<p>Номер:</p>
 								</div>
 								<div class="form-el">
-									<input type="number" name="id" id="randomIdHolder" disabled autocomplete="off">
+									<input type="number" name="id" id="randomIdHolder" disabled autocomplete="off"/>
 								</div>
 								<div class="form-el">
 									<p>Название:</p>
@@ -40,14 +40,14 @@
 								</div>
 								<div class="form-el">
 									<div class="omg">
-										<img src="../../">
-										<input type="hidden" name="img">
+										<img src="."/>
+										<input type="hidden" name="img"/>
 									</div>
 								</div>
 								<div class="form-el"></div>
 								<div class="form-el">
-									<label class="file ok" onclick="showImg()">Изменить изображение</label><br><br>
-									<input type="button" value="Подтвердить изменения" class="ok" onclick="addAfish()">
+									<label class="file ok" onclick="showImg()">Изменить изображение</label><br/><br/>
+									<input type="button" value="Подтвердить изменения" class="ok" onclick="addNews()"/>
 								</div>
 						</div>
 					</form>
@@ -57,4 +57,4 @@
 			<button onclick="hideImg()"></button>
 		</div>
 
-<?php require 'footer-admin.php'; ?>
+<% include footer-admin %>

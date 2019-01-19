@@ -1,0 +1,69 @@
+<div class="folder">
+	<h3><i class="th-folder"></i> images</h3>
+	<hr>
+</div>
+<div class="row">
+
+	<div class="col">
+		<% for (let i=0; i < gallery.length; i+=3) { %>
+			<img src="<%= gallery[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+	<div class="col">
+		<% for (let i=1; i < gallery.length; i+=3) { %>
+			<img src="<%= gallery[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+	<div class="col">
+		<% for (let i=2; i < gallery.length; i+=3) { %>
+			<img src="<%= gallery[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+
+</div>
+<div class="folder">
+	<h3><i class="th-folder"></i> actors-images</h3>
+	<hr>
+</div>
+<div class="row">
+
+	<div class="col">
+		<% for (let i=0; i < actors.length; i+=3) { %>
+			<img src="<%= actors[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+	<div class="col">
+		<% for (let i=1; i < actors.length; i+=3) { %>
+			<img src="<%= actors[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+	<div class="col">
+		<% for (let i=2; i < actors.length; i+=3) { %>
+			<img src="<%= actors[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+
+</div>
+<div class="folder">
+	<h3><i class="th-folder"></i> news-images</h3>
+	<hr>
+</div>
+<div class="row">
+
+	<div class="col">
+		<% for (let i=0; i < news.length; i+=3) { %>
+			<img src="<%= news[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+	<div class="col">
+		<% for (let i=1; i < news.length; i+=3) { %>
+			<img src="<%= news[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+	<div class="col">
+		<% for (let i=2; i < news.length; i+=3) { %>
+			<img src="<%= news[i].img %>" onclick="chooseImg(this)"/>
+		<% } %>
+	</div>
+
+</div>

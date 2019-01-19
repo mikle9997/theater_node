@@ -10,7 +10,7 @@
 			<div class="col">
 				<% for (let i=0; i < gallery.length; i+=3) { %>
 					<div onclick="currentSlide(this)">
-						<img src="/<%= gallery[i].img %>" alt="img">
+						<img src="<%= gallery[i].img %>" alt="img">
 						<p><i class="fas fa-search-plus"></i></p>
 					</div>
 				<% } %>
@@ -18,7 +18,7 @@
 			<div class="col">
 				<% for (let i=1; i < gallery.length; i+=3) { %>
 					<div onclick="currentSlide(this)">
-						<img src="/<%= gallery[i].img %>" alt="img">
+						<img src="<%= gallery[i].img %>" alt="img">
 						<p><i class="fas fa-search-plus"></i></p>
 					</div>
 				<% } %>
@@ -26,7 +26,7 @@
 			<div class="col">
 				<% for (let i=2; i < gallery.length; i+=3) { %>
 					<div onclick="currentSlide(this)">
-						<img src="/<%= gallery[i].img %>" alt="img">
+						<img src="<%= gallery[i].img %>" alt="img">
 						<p><i class="fas fa-search-plus"></i></p>
 					</div>
 				<% } %>
@@ -35,7 +35,7 @@
 	<div class="modal-img">
 		<button onclick="closeModal()">✖</button>
 		<div class="img-block">
-			<img src="images/gallery/gallery1.jpg" alt="img" onclick="closeModal()">
+			<img src="." alt="img" onclick="closeModal()">
 		</div>
 		<div class="prev" onclick="changeSlide(-1)">&#10094;</div>
 		<div class="next" onclick="changeSlide(1)">&#10095;</div>
@@ -43,4 +43,4 @@
 
 	<script src="/javascripts/script.js"></script>
 	<script src="/javascripts/modalIMG.js"></script>
-	<% include footer %>
+<% include footer %>

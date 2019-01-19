@@ -107,35 +107,35 @@ function addActor() {
 	}
 }
 
-function addAfish() {
-	let log = true;
+function addNews() {
+	let correct = true;
 	let id = form['id'].value;
 	if (id == '') {
 		form['id'].style['border'] = '1px solid #f44';
-		log = false;
+		correct = false;
 	}
 	let name = form['name'].value;
 	if (name == '') {
 		form['name'].style['border'] = '1px solid #f44';
-		log = false;
+		correct = false;
 	}
 	let text = form['text'].value;
 	if (text == '') {
 		form['text'].style['border'] = '1px solid #f44';
-		log = false;
+		correct = false;
 	}
 	let date = form['date'].value;
 	if (date == '') {
 		form['date'].style['border'] = '1px solid #f44';
-		log = false;
+		correct = false;
 	}
 	let img = form['img'].value;
 	if (img == '') {
 		alert('Выберите изображение');
-		log = false;
+		correct = false;
 	}
 
-	if (log) {
+	if (correct) {
 		let xml = new XMLHttpRequest();
 		xml.open('GET',`../control/act-a.php?id=${id}&name=${name}&text=${text}&date=${date}&img=${img}&`,true);
 		xml.send();
@@ -192,15 +192,16 @@ document.querySelectorAll('textarea').forEach(t=>{
 
 let img = document.querySelector('.select-img-block');
 let wrap = document.querySelector('.select-img-block .wrapper-img');
+
 function showImg() {
 	img.style['display'] = 'flex';
 	let xml = new XMLHttpRequest();
 	xml.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      wrap.innerHTML = this.responseText;
-    }
-  };
-	xml.open('GET',`../control/allimages.php`,true);
+		if (this.readyState == 4 && this.status == 200) {
+		wrap.innerHTML = this.responseText;
+		}
+  	};
+	xml.open('GET',`/admin/all-images`,true);
 	xml.send();
 }
 function hideImg() {
@@ -208,10 +209,9 @@ function hideImg() {
 }
 
 function chooseImg(img) {
-	let a = img.getAttribute('src').split('/');
-	console.log(a[a.length-2] + '/' + a[a.length-1],a)
-	form['img'].value = a[a.length-2] + '/' + a[a.length-1];
-	document.querySelector('.omg img').setAttribute('src','../../' + a[a.length-2] + '/' + a[a.length-1]);
+	let img_src = img.getAttribute('src');
+	form['img'].value = img_src;
+	document.querySelector('.omg img').setAttribute('src', img_src);
 
 	hideImg();
 }

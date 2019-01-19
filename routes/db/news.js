@@ -7,27 +7,25 @@ const connection = mysql.createConnection({
   database : 'mikle94h_theater'
 });
 
-function getAfishaAll() {
+function getAll() {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from afish2 order by date DESC;', function (error, results, fields) {
+        connection.query('SELECT * from news order by date DESC;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });
     });
 }
-
-function getAfishaThreeLast() {
+function getThreeLast() {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from afish2 order by date DESC limit 3;', function (error, results, fields) {
+        connection.query('SELECT * from news order by date DESC limit 3;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });
     });
 }
-
-function getAfishaById( id ) {
+function getById( id ) {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from afish2 where id = ' + id + ' order by date DESC;', function (error, results, fields) {
+        connection.query('SELECT * from news where id = ' + id + ' order by date DESC;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });
@@ -35,7 +33,7 @@ function getAfishaById( id ) {
 }
 
 module.exports = {
-    getAfishaAll,
-    getAfishaThreeLast,
-    getAfishaById
+    getAll,
+    getThreeLast,
+    getById
 };

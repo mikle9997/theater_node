@@ -7,9 +7,9 @@ const connection = mysql.createConnection({
   database : 'mikle94h_theater'
 });
 
-function getTroupe() {
+function getAll() {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from trupa order by id DESC;', function (error, results, fields) {
+        connection.query('SELECT * from troupe order by id DESC;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });
@@ -17,5 +17,5 @@ function getTroupe() {
 }
 
 module.exports = {
-    getTroupe
+    getAll
 };
