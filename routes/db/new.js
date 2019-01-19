@@ -25,15 +25,6 @@ function getAfishaThreeLast() {
     });
 }
 
-function getAfishaAll() {
-    return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from afish2 order by date DESC;', function (error, results, fields) {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
-}
-
 function getAfishaById( id ) {
     return new Promise ((resolve, reject) => {
         connection.query('SELECT * from afish2 where id = ' + id + ' order by date DESC;', function (error, results, fields) {
@@ -43,18 +34,8 @@ function getAfishaById( id ) {
     });
 }
 
-function getTroupe() {
-    return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from trupa order by id DESC;', function (error, results, fields) {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
-}
-
 module.exports = {
     getAfishaAll,
     getAfishaThreeLast,
-    getTroupe,
     getAfishaById
 };

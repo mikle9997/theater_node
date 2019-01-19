@@ -3,9 +3,9 @@ const router = express.Router();
 const db = require('./db');
 const moment = require('moment');
 
-router.get('/:id', async function( req, res, next ) {
+router.get('/:id', async ( req, res, next ) => {
   const id = req.params.id;
-  const post = (await db.getAfishaById( id ))[0];  
+  const post = (await db.news.getAfishaById( id ))[0];  
   if (post == null) {
     res.redirect('/');
   }  
