@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+
+  mysql:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    restart: always
+
+  hyperborea:
+    image: node:0.12
+    working_dir: /hyperborea
+    build: .
+    command: npm start
+    ports:
+      - 3000:8080
+    depends_on:
+      - mysql
+    tty: true
