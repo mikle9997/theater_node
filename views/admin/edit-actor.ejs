@@ -1,0 +1,50 @@
+<% include header-admin %>
+
+	<div class="section-1">
+			<ul class="list">				
+				<li><a href="/admin"><i class="th-home"></i> Главная</a></li>
+				<li><a href="/admin/news"><i class="th-pin"></i> Записи</a></li>
+				<li class="active"><a href="/admin/actors"><i class="th-edit"></i> Изменение</a></li>
+				<li><a href="/admin/imgs"><i class="th-picture"></i> Медиафайлы</a></li>
+			</ul>
+		</div>
+		<div class="section-2" data-page="afish-editing">
+			<h2>Редактирование</h2>
+					<form class="f">
+						<div class="form">
+								<div class="form-el">
+									<p>Имя и фамилия:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="name" placeholder="Имя и фамилия" autocomplete="off" value="<%= actor.name %> <%= actor.secname %>"/>
+								</div>
+								<div class="form-el">
+									<p>Должность в театре:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="role" placeholder="Актер" autocomplete="off" value="<%= actor.role %>"/>
+								</div>
+								<div class="form-el">
+									<p>Фотография:</p>
+								</div>
+								<div class="form-el">
+									<div class="omg">
+										<img src="<%= actor.img %>">
+										<input type="hidden" name="img" value="<%= actor.img %>">
+									</div>
+								</div>
+								<div class="form-el"></div>
+								<div class="form-el">
+									<label class="file ok" onclick="showImg()">Изменить изображение</label><br><br>
+									<input type="button" value="Подтвердить изменения" class="ok" onclick="editActor()">
+								</div>
+								<input type="number" name="id" hidden="true" value="<%= actor.id %>"/>
+						</div>
+					</form>
+		</div>
+		<div class="select-img-block">
+			<div class="wrapper-img"></div>
+			<button onclick="hideImg()"></button>
+		</div>
+
+<% include footer-admin %>

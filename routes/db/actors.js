@@ -9,15 +9,7 @@ const connection = mysql.createConnection({
 
 function getAll() {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from news order by date DESC;', function (error, results, fields) {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
-}
-function getThreeLast() {
-    return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from news order by date DESC limit 3;', function (error, results, fields) {
+        connection.query('select * from actors order by id DESC;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });
@@ -25,35 +17,34 @@ function getThreeLast() {
 }
 function getById( id ) {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from news where id = ' + id + ' order by date DESC;', function (error, results, fields) {
+        connection.query('select * from actors where id = ' + id + ' order by id DESC;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });
     });
 }
-function insertPost( name, text, date, img ) {
+function insertActor( name, secname, role, img ) {
     return new Promise ((resolve, reject) => {
-        const sql_req = "insert into news (`title`, `text`, `date`, `img`) values ( '" + name + "' ,'" + text + "' ,'" + date + "' ,'" + img + "' );";
+        const sql_req = "insert into actors (`name`, `secname`, `role`, `img`) values ( '" + name + "' ,'" + secname + "' ,'" + role + "' ,'" + img + "' );";
         connection.query(sql_req, function (error, results) {
             if (error) return reject(error);
             resolve();
         });
     });
 }
-function deletePost( id ) {
+function deleteActor( id ) {
     return new Promise ((resolve, reject) => {
-        const sql_req = "delete from news where id = " + id;
+        const sql_req = "delete from actors where id = " + id;
         connection.query(sql_req, function (error, results) {
             if (error) return reject(error);
             resolve();
         });
     });
 }
-
-function updatePost( id, name, text, date, img ) {
+function updateActor( id, name, secname, role, img ) {
     return new Promise ((resolve, reject) => {
-        const sql_req = "update news set " +
-        "`title`='" + name + "', `text`='" + text + "', `date`='" + date + "', `img`='" + img + "' " +
+        const sql_req = "update actors set " +
+        "`name`='" + name + "', `secname`='" + secname + "', `role`='" + role + "', `img`='" + img + "' " +
         "where id = " + id;
         connection.query(sql_req, function (error, results) {
             if (error) return reject(error);
@@ -64,9 +55,8 @@ function updatePost( id, name, text, date, img ) {
 
 module.exports = {
     getAll,
-    getThreeLast,
+    insertActor,
+    deleteActor,
     getById,
-    insertPost,
-    deletePost,
-    updatePost
+    updateActor
 };

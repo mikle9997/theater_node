@@ -1,9 +1,9 @@
 <% include meta %>
-	<link rel="stylesheet" href="/stylesheets/trupe.css">
+	<link rel="stylesheet" href="/stylesheets/actors.css">
 	<title>Труппа</title>
 	<% include header %>
 	<div class="actors-wrapper">
-		<% troupe.forEach( function (person) { %>
+		<% actors.forEach( function (person) { %>
 			<div class="actor-card">
 				<div class="card-img" data-src='<%= person.img %>'></div>
 				<p><%= person.name %> <%= person.secname %> </p>

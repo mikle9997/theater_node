@@ -1,10 +1,10 @@
 const news = require('./news');
-const troupe = require('./troupe');
+const actors = require('./actors');
 const media = require('./media');
 
 
 module.exports = {
     news,
-    troupe,
+    actors,
     media
 };

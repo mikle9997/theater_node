@@ -13,9 +13,9 @@ router.get('/news', async (req, res, next) => {
   res.render('partition/afisha', { news, moment });
 });
 
-router.get('/troupe', async (req, res, next) => {
-  const troupe = await db.troupe.getAll();
-  res.render('partition/troupe', { troupe });
+router.get('/actors', async (req, res, next) => {
+  const actors = await db.actors.getAll();
+  res.render('partition/actors', { actors });
 });
 
 router.get('/gallery', async (req, res, next) => {

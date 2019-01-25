@@ -2,116 +2,158 @@ document.querySelector('.section-2').style['min-height'] = `${window.innerHeight
 
 let form = document.querySelector('form.f');
 
-function sendAfish() {
-	let log = true;
-	let id = form['id'].value;
-	if (id == '') {
-		form['id'].style['border'] = '1px solid #f44';
-		log = false;
-	}
-	let name = form['name'].value;
-	if (name == '') {
-		form['name'].style['border'] = '1px solid #f44';
-		log = false;
-	}
-	let text = form['text'].value;
-	if (text == '') {
-		form['text'].style['border'] = '1px solid #f44';
-		log = false;
-	}
-	let date = form['date'].value;
-	if (date == '') {
-		form['date'].style['border'] = '1px solid #f44';
-		log = false;
-	}
-	let img = form['img'].value;
-	if (img == '') {
-		alert('Выберите изображение');
-		log = false;
-	}
-
-	if (log) {
-		let xml = new XMLHttpRequest();
-		xml.open('GET',`../control/act-e.php?id=${id}&name=${name}&text=${text}&date=${date}&img=${img}&`,true);
-		xml.send();
-		setTimeout(()=>{
-			location.reload();
-		},100)
-	}
-}
-
-function sendActor() {
-	let log = true;
-	let id = form['id'].value;
-	if (id == '') {
-		form['id'].style['border'] = '1px solid #f44';
-		log = false;
-	}
-	let name = form['name'].value.split(' ')[0];
-	let secname = form['name'].value.split(' ')[1];
-	if (name == '' || secname == '') {
-		form['name'].style['border'] = '1px solid #f44';
-		log = false;
-	}
-	let role = form['role'].value;
-	if (role == '') {
-		form['role'].style['border'] = '1px solid #f44';
-		log = false;
-	}
-	let img = form['img'].value;
-	if (img == '') {
-		alert('Выберите изображение');
-		log = false;
-	}
-	if (log) {
-		let xml = new XMLHttpRequest();
-		xml.open('GET',`../control/ac-e.php?id=${id}&name=${name}&secname=${secname}&role=${role}&img=${img}&`,true);
-		xml.send();
-		setTimeout(()=>{
-			location.reload();
-		},100)
-	}
-}
-
 function addActor() {
-	let log = true;
+	let correct = true;
+
+	let name = form['name'].value.split(' ')[0];
+	let secname = form['name'].value.split(' ')[1];
+	if (name == '' || secname == '') {
+		form['name'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let role = form['role'].value;
+	if (role == '') {
+		form['role'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let img = form['img'].value;
+	if (img == '') {
+		alert('Выберите изображение');
+		correct = false;
+	}
+
+	if (correct) {
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST',`/admin/actors/add`);
+		let data = 	"name=" + name +
+					"&secname=" + secname +
+					"&role=" + role +
+					"&img=" + img;
+
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.addEventListener('load', function(event) {
+			location.assign('/admin/actors');
+		});
+		
+		xhr.addEventListener('error', function(event) {
+			alert('Что-то пошло не так. Молитва должна излечить недуг.');
+		});
+		
+		xhr.send(data);
+	}
+}
+
+function editActor() {
+	let correct = true;
 	let id = form['id'].value;
 	if (id == '') {
-		form['id'].style['border'] = '1px solid #f44';
-		log = false;
+		correct = false;
 	}
 	let name = form['name'].value.split(' ')[0];
 	let secname = form['name'].value.split(' ')[1];
 	if (name == '' || secname == '') {
 		form['name'].style['border'] = '1px solid #f44';
-		log = false;
+		correct = false;
 	}
 	let role = form['role'].value;
 	if (role == '') {
 		form['role'].style['border'] = '1px solid #f44';
-		log = false;
+		correct = false;
 	}
 	let img = form['img'].value;
 	if (img == '') {
 		alert('Выберите изображение');
-		log = false;
+		correct = false;
 	}
-	if (log) {
-		let xml = new XMLHttpRequest();
-		xml.open('GET',`../control/ac-a.php?id=${id}&name=${name}&secname=${secname}&role=${role}&img=${img}&`,true);
-		xml.send();
-		location.assign('../view/actors-list.php');
-		setTimeout(()=>{
-			location.reload();
-		},100)
+
+	if (correct) {
+		let xhr = new XMLHttpRequest();
+		xhr.open('PUT',`/admin/actors/edit`);
+		let data = 	"id=" + id +
+					"&name=" + name +
+					"&secname=" + secname +
+					"&role=" + role +
+					"&img=" + img;
+
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.addEventListener('load', function(event) {
+			location.assign('/admin/actors');
+		});
+		xhr.addEventListener('error', function(event) {
+			alert('Что-то пошло не так. Молитва должна излечить недуг.');
+		});
+		
+		xhr.send(data);
 	}
+}
+
+function deleteActor(id) {
+	let xhr = new XMLHttpRequest();
+	
+	xhr.open('DELETE',`/admin/actors`);
+	let data = 	"id=" + id;
+
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.addEventListener('load', function(event) {
+		location.reload();
+	});
+	xhr.addEventListener('error', function(event) {
+		alert('Что-то пошло не так. Молитва должна излечить недуг.');
+	});
+	
+	xhr.send(data);
 }
 
 function addNews() {
 	let correct = true;
+	
+	let name = form['name'].value;
+	if (name == '') {
+		form['name'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let text = form['text'].value;
+	if (text == '') {
+		form['text'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let date = form['date'].value;
+	if (date == '') {
+		form['date'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let img = form['img'].value;
+	if (img == '') {
+		alert('Выберите изображение');
+		correct = false;
+	}
+
+	if (correct) {
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST',`/admin/news/add`);
+		let data = 	"name=" + name +
+					"&text=" + text +
+					"&date=" + date +
+					"&img=" + img;
+
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.addEventListener('load', function(event) {
+			location.assign('/admin/news');
+		});
+		
+		xhr.addEventListener('error', function(event) {
+			alert('Что-то пошло не так. Молитва должна излечить недуг.');
+		});
+		
+		xhr.send(data);
+	}
+}
+
+function editNews() {
+	let correct = true;
+
 	let id = form['id'].value;
 	if (id == '') {
-		form['id'].style['border'] = '1px solid #f44';
 		correct = false;
 	}
 	let name = form['name'].value;
@@ -136,32 +178,41 @@ function addNews() {
 	}
 
 	if (correct) {
-		let xml = new XMLHttpRequest();
-		xml.open('GET',`../control/act-a.php?id=${id}&name=${name}&text=${text}&date=${date}&img=${img}&`,true);
-		xml.send();
-		location.assign('../view/list.php');
-		setTimeout(()=>{
-			location.reload();
-		},100)
+		let xhr = new XMLHttpRequest();
+		xhr.open('PUT',`/admin/news/edit`);
+		let data = 	"id=" + id +
+					"&name=" + name +
+					"&text=" + text +
+					"&date=" + date +
+					"&img=" + img;
+
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.addEventListener('load', function(event) {
+			location.assign('/admin/news');
+		});
+		xhr.addEventListener('error', function(event) {
+			alert('Что-то пошло не так. Молитва должна излечить недуг.');
+		});
+		
+		xhr.send(data);
 	}
 }
 
-function deleteAfish(id) {
-	let xml = new XMLHttpRequest();
-	xml.open('GET',`../control/delete-afish.php?q=${id}`,true);
-	xml.send();
-	setTimeout(()=>{
-		location.reload();
-	},100)
-}
+function deleteNews(id) {
+	let xhr = new XMLHttpRequest();
+	
+	xhr.open('DELETE',`/admin/news`);
+	let data = 	"id=" + id;
 
-function deleteActor(id) {
-	let xml = new XMLHttpRequest();
-	xml.open('GET',`../control/delete-actor.php?q=${id}`,true);
-	xml.send();
-	setTimeout(()=>{
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.addEventListener('load', function(event) {
 		location.reload();
-	},100)
+	});
+	xhr.addEventListener('error', function(event) {
+		alert('Что-то пошло не так. Молитва должна излечить недуг.');
+	});
+	
+	xhr.send(data);
 }
 
 function cutText(el) {
@@ -237,10 +288,3 @@ function showUp() {
 function hideUp() {
 	imgup.style['display'] = 'none';
 }
-
-function randomId() {
-	let element = document.querySelector('#randomIdHolder');
-	if (element != null)
-		element.value = Math.floor(Math.random() * 900000 + 100000);
-}
-randomId();

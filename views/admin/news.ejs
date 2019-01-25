@@ -3,19 +3,19 @@
 			<ul class="list">
 				<li><a href="/admin"><i class="th-home"></i> Главная</a></li>
 				<li class="active"><a href="/admin/news"><i class="th-pin"></i> Записи</a></li>
-				<li><a href="/admin/actors-list"><i class="th-group"></i> Актеры</a></li>
-				<li><a href="/admin/editimg"><i class="th-picture"></i> Медиафайлы</a></li>
+				<li><a href="/admin/actors"><i class="th-group"></i> Актеры</a></li>
+				<li><a href="/admin/imgs"><i class="th-picture"></i> Медиафайлы</a></li>
 			</ul>
 		</div>
 		<div class="section-2">
 			<h2>Записи</h2>
 			<div class="element-list">
 				<h3>Новости</h3>
-				<a href="/admin/add_afish">
+				<a href="/admin/news/add">
 					<div class="list-element">
 						<div class="plus"><span></span><span></span></div>
 						<div class="text">
-							<a href="/admin/add-news" class="href-btn ok">Добавить</a>
+							<a href="/admin/news/add" class="href-btn ok">Добавить</a>
 						</div>
 					</div>
 				</a>
@@ -26,11 +26,12 @@
 									<h4><%= post.title %></h4>
 									<p data-cut><%= post.text %></p>
 									<p class="date"><%= moment(post.date).format('DD-MM-YYYY') %></p>
-									<a href="editing-afish/<%= post.id %>" class="href-btn ok"><i class="th-edit"></i> Изменить</a>
-									<button class="href-btn danger" onclick="deleteAfish(<%= post.id %>)"><i class="th-trash"></i> Удалить</button>
+									<a href="/admin/news/edit/<%= post.id %>" class="href-btn ok"><i class="th-edit"></i> Изменить</a>
+									<button class="href-btn danger" onclick="deleteNews(<%= post.id %>)"><i class="th-trash"></i> Удалить</button>
 								</div>
 							</div>
 				<% }); %>
+
 			</div>
 		</div>
 <% include footer-admin %>
