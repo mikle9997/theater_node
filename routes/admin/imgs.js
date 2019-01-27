@@ -25,10 +25,16 @@ router.post( "/", ( req, res ) => {
       fileName = filePath;
     }
   });
-    const upload = multer({
+  const upload = multer({
     storage,
-    fileFilter: (req, file, cb) => {
-      const ext = path.extname(file.originalname);
+    fileFilter: (req, file, cb) => {      
+      if (file.originalname == "") {
+        const err = new Error("Extention");
+        err.code = "NO_FILE";
+        return cb(err);
+      }
+
+      const ext = path.extname(file.originalname);      
       if (ext !== ".jpg" && ext !== ".jpeg" && ext !== ".png") {
         const err = new Error("Extention");
         err.code = "EXTENTION";
@@ -37,7 +43,7 @@ router.post( "/", ( req, res ) => {
       cb(null, true);
     }
   }).single("file");
-
+  
   upload( req, res, err => {
     item = req.body.item;
     let error = "";
@@ -47,6 +53,9 @@ router.post( "/", ( req, res ) => {
       } else {
         error = err.code;
       }
+    } else if ( fileName == "" ) {
+      err = true;
+      error = "Файл не выбран!"
     } else {
       db.media.insertData( '/images/gallery/' + fileName, item );
     }
@@ -60,7 +69,7 @@ router.post( "/", ( req, res ) => {
 router.delete('/', async ( req, res, next ) => {
   const { id } = req.body;
   await db.media.deleteImg(id);
-  res.send();
+  res.json();
 });
 
 module.exports = router;

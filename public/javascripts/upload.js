@@ -3,14 +3,6 @@ $( '#upload' ).on( 'click', () => {
     let formData = new FormData();
     
     formData.append('file', fileData);
-
-    // let xml = new XMLHttpRequest();
-    // xml.open('GET',`../control/changedir.php?q=${$('#folderselect').val()}`,true);
-    // xml.send();
-
-    // const text = $('#folderselect').val();
-
-
     formData.append('item', $('#folderselect').val());
     
     $.ajax({
@@ -21,6 +13,8 @@ $( '#upload' ).on( 'click', () => {
         data: formData,
         type: 'POST'
     }).done( data => {
+        console.log(data);
+        
         location.reload();
     });
 });
