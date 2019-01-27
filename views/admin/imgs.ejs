@@ -15,7 +15,7 @@
 				<input type="button" value="Удалить" class="danger" onclick="deleteIMG()">
 				<input type="reset" class="reset">
 				<div class="folder">
-					<h3><i class="th-folder"></i> images</h3>
+					<h3><i class="th-folder"></i> gallery</h3>
 					<hr>
 				</div>
 				<div class="row">
@@ -23,8 +23,8 @@
 						<% for (let i=0; i < gallery.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= gallery[i].img %>">
-									<img src="<%= gallery[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= gallery[i].id %>"/>
+									<img src="<%= gallery[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -34,8 +34,8 @@
 						<% for (let i=1; i < gallery.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= gallery[i].img %>">
-									<img src="<%= gallery[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= gallery[i].id %>"/>
+									<img src="<%= gallery[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -45,8 +45,8 @@
 						<% for (let i=2; i < gallery.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= gallery[i].img %>">
-									<img src="<%= gallery[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= gallery[i].id %>"/>
+									<img src="<%= gallery[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -56,8 +56,8 @@
 						<% for (let i=3; i < gallery.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= gallery[i].img %>">
-									<img src="<%= gallery[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= gallery[i].id %>"/>
+									<img src="<%= gallery[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -65,7 +65,7 @@
 					</div>
 				</div>
 				<div class="folder">
-					<h3><i class="th-folder"></i> actor-images</h3>
+					<h3><i class="th-folder"></i> actors</h3>
 					<hr>
 				</div>
 				<div class="row">
@@ -73,8 +73,8 @@
 						<% for (let i=0; i < actors.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= actors[i].img %>">
-									<img src="<%= actors[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= actors[i].id %>"/>
+									<img src="<%= actors[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -84,8 +84,8 @@
 						<% for (let i=1; i < actors.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= actors[i].img %>">
-									<img src="<%= actors[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= actors[i].id %>"/>
+									<img src="<%= actors[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -95,8 +95,8 @@
 						<% for (let i=2; i < actors.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= actors[i].img %>">
-									<img src="<%= actors[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= actors[i].id %>"/>
+									<img src="<%= actors[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -106,8 +106,8 @@
 						<% for (let i=3; i < actors.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= actors[i].img %>">
-									<img src="<%= actors[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= actors[i].id %>"/>
+									<img src="<%= actors[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -115,7 +115,7 @@
 					</div>
 				</div>
 				<div class="folder">
-					<h3><i class="th-folder"></i> afish-images</h3>
+					<h3><i class="th-folder"></i> news</h3>
 					<hr>
 				</div>
 				<div class="row">
@@ -123,8 +123,8 @@
 						<% for (let i=0; i < news.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= news[i].img %>">
-									<img src="<%= news[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= news[i].id %>"/>
+									<img src="<%= news[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -134,8 +134,8 @@
 						<% for (let i=1; i < news.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= news[i].img %>">
-									<img src="<%= news[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= news[i].id %>"/>
+									<img src="<%= news[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -145,8 +145,8 @@
 						<% for (let i=2; i < news.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= news[i].img %>">
-									<img src="<%= news[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= news[i].id %>">
+									<img src="<%= news[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -156,8 +156,8 @@
 						<% for (let i=3; i < news.length; i+=4) { %>
 							<div class="img">
 								<label>
-									<input type="checkbox" name="image" value="<%= news[i].img %>">
-									<img src="<%= news[i].img %>" onclick="chooseImg(this)"/>
+									<input type="checkbox" name="image" value="<%= news[i].id %>"/>
+									<img src="<%= news[i].img %>" onclick="chooseImgForEditMedia(this)"/>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -169,38 +169,18 @@
 		<div class="upload-img-block">
 			<button onclick="hideUp()"></button>
 			<div class="wrapper-img">
-				<h3>Выберите папку:</h3><br>
+				<h3>Выберите папку:</h3><br/>
 				<select id="folderselect">
-					<option value="images">images</option>
-					<option value="afish-images">afish-images</option>
-					<option value="actors-images">actors-images</option>
+					<option value="gallery">gallery</option>
+					<option value="news">news</option>
+					<option value="actor">actors</option>
 				</select>
-				<label class="file ok"><input type="file" id="sortpicture">Выбрать изображение</label>
-				<input id="upload" value="Загрузить" class="ok" type="button">
+				<label class="file ok"><input type="file" id="sortpicture"/>Выбрать изображение</label>
+				<input id="upload" value="Загрузить" class="ok" type="button"/>
 			</div>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script>
-			$('#upload').on('click', function() {
-			  let file_data = $('#sortpicture').prop('files')[0];
-			  let form_data = new FormData();
-			  form_data.append('file', file_data);
-			  let xml = new XMLHttpRequest();
-				xml.open('GET',`../control/changedir.php?q=${$('#folderselect').val()}`,true);
-				xml.send();
-			  $.ajax({
-			    url: '../control/upload.php',
-			    dataType: 'text',
-			    cache: false,
-			    contentType: false,
-			    processData: false,
-			    data: form_data,
-			    type: 'post'
-			  });
-			  setTimeout(()=>{
-					location.reload();
-				},100)
-			});
-		</script>
+		<script src="/javascripts/upload.js"></script>
+		
 <% include footer-admin %>

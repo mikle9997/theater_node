@@ -49,7 +49,6 @@ function deletePost( id ) {
         });
     });
 }
-
 function updatePost( id, name, text, date, img ) {
     return new Promise ((resolve, reject) => {
         const sql_req = "update news set " +

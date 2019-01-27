@@ -31,9 +31,29 @@ function getNews() {
         });
     });
 }
+function insertData( img, type_of ) {
+    return new Promise ( (resolve, reject) => {
+        const sql_query = "insert into media (`img`, `type_of`) values ( '" + img + "' ,'" + type_of + "' );";
+        connection.query( sql_query, function (error, results, fields) {
+            if (error) return reject(error);
+            resolve(results);
+        });
+    });
+}
+function deleteImg( id ) {
+    return new Promise ((resolve, reject) => {
+        const sql_req = "delete from media where id = " + id;
+        connection.query(sql_req, function (error, results) {
+            if (error) return reject(error);
+            resolve();
+        });
+    });
+}
 
 module.exports = {
     getGallery,
     getActors,
-    getNews
+    getNews,
+    insertData,
+    deleteImg
 };

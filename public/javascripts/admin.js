@@ -34,7 +34,6 @@ function addActor() {
 		xhr.addEventListener('load', function(event) {
 			location.assign('/admin/actors');
 		});
-		
 		xhr.addEventListener('error', function(event) {
 			alert('Что-то пошло не так. Молитва должна излечить недуг.');
 		});
@@ -215,34 +214,34 @@ function deleteNews(id) {
 	xhr.send(data);
 }
 
-function cutText(el) {
-	if (el.innerHTML.length > 80) {
+function cutText( el ) {
+	if ( el.innerHTML.length > 80 ) {
 		let text = el.innerHTML;
 		el.innerHTML = '';
-		for (let i = 0; i < 80; i++) {
+		for ( let i = 0; i < 80; i++ ) {
 			el.innerHTML += text[i];
 		}
 		el.innerHTML += '...';
 	}
 }
 
-document.querySelectorAll('p[data-cut]').forEach(c=>{
+document.querySelectorAll( 'p[data-cut]' ).forEach( c => {
 	cutText(c);
 })
 
-document.querySelectorAll('input').forEach(i=>{
-	i.addEventListener('click',()=>{
+document.querySelectorAll( 'input' ).forEach( i => {
+	i.addEventListener( 'click', () => {
 		i.style['border'] = '1px solid #ccc';
 	})
 })
-document.querySelectorAll('textarea').forEach(t=>{
-	t.addEventListener('click',()=>{
+document.querySelectorAll( 'textarea' ).forEach(t=>{
+	t.addEventListener( 'click', () => {
 		t.style['border'] = '1px solid #ccc';
 	})
 })
 
-let img = document.querySelector('.select-img-block');
-let wrap = document.querySelector('.select-img-block .wrapper-img');
+let img = document.querySelector( '.select-img-block' );
+let wrap = document.querySelector( '.select-img-block .wrapper-img' );
 
 function showImg() {
 	img.style['display'] = 'flex';
@@ -255,6 +254,7 @@ function showImg() {
 	xml.open('GET',`/admin/all-images`,true);
 	xml.send();
 }
+
 function hideImg() {
 	img.style['display'] = 'none';
 }
@@ -267,18 +267,32 @@ function chooseImg(img) {
 	hideImg();
 }
 
-function deleteIMG() {
+function chooseImgForEditMedia( img ) {
+	let img_src = img.getAttribute('src');
+	form['image'].value = img_src;
+	document.querySelector('.img').setAttribute('src', img_src);
+}
+
+function deleteIMG() {	
 	let images = form['image'];
-	images.forEach(i=>{
-		if (i.checked) {
-			let xml = new XMLHttpRequest();
-			xml.open('GET',`../control/deleteIMG.php?q=${i.value}`,true);
-			xml.send();
-			setTimeout(()=>{
+	images.forEach( item => {
+		if (item.checked) {
+			let xhr = new XMLHttpRequest();
+	
+			xhr.open('DELETE',`/admin/imgs`);
+			let data = 	"id=" + item.value;
+		
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.addEventListener('load', function(event) {
 				location.reload();
-			},100)
+			});
+			xhr.addEventListener('error', function(event) {
+				alert('Что-то пошло не так. Молитва должна излечить недуг.');
+			});
+			
+			xhr.send(data);
 		}
-	})
+	});
 }
 
 let imgup = document.querySelector('.upload-img-block');
