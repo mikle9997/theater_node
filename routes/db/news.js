@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
 
 function getAll() {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from news order by date DESC;', function (error, results, fields) {
+        connection.query('select * from news order by date DESC;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });
@@ -17,7 +17,7 @@ function getAll() {
 }
 function getThreeLast() {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from news order by date DESC limit 3;', function (error, results, fields) {
+        connection.query('select * from news order by date DESC limit 3;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });
@@ -25,7 +25,7 @@ function getThreeLast() {
 }
 function getById( id ) {
     return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from news where id = ' + id + ' order by date DESC;', function (error, results, fields) {
+        connection.query('select * from news where id = ' + id + ' order by date DESC;', function (error, results, fields) {
             if (error) return reject(error);
             resolve(results);
         });

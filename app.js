@@ -1,14 +1,22 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var newsPageRouter = require('./routes/news_page');
-var adminRouter = require('./routes/admin');
+const indexRouter = require('./routes/index');
+const newsPageRouter = require('./routes/news_page');
+const adminRouter = require('./routes/admin');
+const authRouter = require('./routes/auth');
 
-var app = express();
+const app = express();
+
+const cookieSession = require('cookie-session');
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['sdfmg#4#@kefinmjwa424']
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/news-page', newsPageRouter);
 app.use('/admin', adminRouter);
+app.use("/auth", authRouter);
 app.get('/favicon.ico', (req, res) => res.status(204));
 
 // catch 404 and forward to error handler
