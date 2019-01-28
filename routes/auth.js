@@ -45,7 +45,8 @@ router.post("/registration", async (req, res) => {
       } else {
         bcrypt.hash(password, null, null, async function(err, hash) {
           try {
-            const newUser = db.users.createUser(login, hash);
+            await db.users.createUser(login, hash);
+            const newUser = await db.users.getByLogin(login);
 
             req.session.userId = newUser.id;  
             req.session.userLogin = newUser.login;
@@ -103,7 +104,6 @@ router.post("/", async (req, res) => {
         // Load hash from your password DB.
         bcrypt.compare(password, user.password, function(err, result) {
           if (result) {
-            
             req.session.userId = user.id;
             req.session.userLogin = user.login;
 

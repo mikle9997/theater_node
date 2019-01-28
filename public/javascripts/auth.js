@@ -38,7 +38,7 @@ $(function() {
             });
           }
         } else {
-          location.href = "/";
+          location.href = "/admin";
         }
       });
     });
@@ -70,7 +70,7 @@ $(function() {
             });
           }
         } else {
-          location = '/admin';
+          location.href = '/admin';
           
         }
       });
