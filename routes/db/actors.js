@@ -1,11 +1,7 @@
 const mysql = require('mysql');
+const config = require('../../config');
 
-const connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'root',
-  database : 'mikle94h_theater'
-});
+const connection = mysql.createConnection(config.db);
 
 function getAll() {
     return new Promise ((resolve, reject) => {

@@ -1,0 +1,10 @@
+const db = {
+    host     : 'localhost',
+    user     : 'root',
+    password : 'root',
+    database : 'db_name'
+};
+
+module.exports = {
+    db
+}
