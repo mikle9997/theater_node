@@ -33,7 +33,6 @@ router.get('/all-images', async ( req, res, next ) => {
     const news = await db.media.getNews();
     res.render('admin/control/all-images', { gallery, actors, news });
   }
-
 });
 
 module.exports = router;

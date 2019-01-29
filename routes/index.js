@@ -10,7 +10,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/news', async (req, res, next) => {
   const news = await db.news.getAll();
-  res.render('partition/afisha', { news, moment });
+  res.render('partition/news', { news, moment });
 });
 
 router.get('/actors', async (req, res, next) => {
@@ -21,6 +21,10 @@ router.get('/actors', async (req, res, next) => {
 router.get('/gallery', async (req, res, next) => {
   const gallery = await db.media.getGallery();
   res.render('partition/gallery', { gallery });
+});
+
+router.get('/about', async (req, res, next) => {
+  res.render('partition/about');
 });
 
 module.exports = router;
