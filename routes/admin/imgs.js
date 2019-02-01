@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require("path");
 const multer = require("multer");
 const db = require('../db');
+const fs = require('fs');
 
 router.get('/', async ( req, res, next ) => {
   const userLogin = req.session.userLogin;
@@ -80,6 +81,7 @@ router.post( "/", ( req, res ) => {
   }
 });
 
+// Remove file from disk and db
 router.delete('/', async ( req, res, next ) => {
   const userLogin = req.session.userLogin;
   const userId = req.session.userId;
@@ -87,7 +89,13 @@ router.delete('/', async ( req, res, next ) => {
   if (!userLogin || !userId) {
     res.redirect('/auth');
   } else {
-    const { id } = req.body;
+    const { id }  = req.body;    
+    const { img } = await db.media.getById(id);
+
+    fs.unlink( 'public' + img, (err) => {
+      if (err) console.log(err);
+    });
+    
     await db.media.deleteImg(id);
     res.json();
   }

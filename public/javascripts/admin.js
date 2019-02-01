@@ -106,9 +106,15 @@ function deleteActor(id) {
 function addNews() {
 	let correct = true;
 	
+
 	let name = form['name'].value;
 	if (name == '') {
 		form['name'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let author = form['author'].value;
+	if (author == '') {
+		form['author'].style['border'] = '1px solid #f44';
 		correct = false;
 	}
 	let text = form['text'].value;
@@ -121,6 +127,36 @@ function addNews() {
 		form['date'].style['border'] = '1px solid #f44';
 		correct = false;
 	}
+	let time = form['time'].value;
+	if (time == '') {
+		form['time'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let duration = form['duration'].value;
+	if (duration == '') {
+		form['duration'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let place = form['place'].value;
+	if (place == '') {
+		form['place'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let producer = form['producer'].value;
+	if (producer == '') {
+		form['producer'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let choreographer = form['choreographer'].value;
+	if (choreographer == '') {
+		form['choreographer'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let actors = form['actors'].value;
+	if (actors == '') {
+		form['actors'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
 	let img = form['img'].value;
 	if (img == '') {
 		alert('Выберите изображение');
@@ -131,8 +167,15 @@ function addNews() {
 		let xhr = new XMLHttpRequest();
 		xhr.open('POST',`/admin/news/add`);
 		let data = 	"name=" + name +
+					"&author=" + author +
 					"&text=" + text +
 					"&date=" + date +
+					"&time=" + time +
+					"&duration=" + duration +
+					"&place=" + place +
+					"&producer=" + producer +
+					"&choreographer=" + choreographer +
+					"&actors=" + actors +
 					"&img=" + img;
 
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -160,6 +203,11 @@ function editNews() {
 		form['name'].style['border'] = '1px solid #f44';
 		correct = false;
 	}
+	let author = form['author'].value;
+	if (author == '') {
+		form['author'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
 	let text = form['text'].value;
 	if (text == '') {
 		form['text'].style['border'] = '1px solid #f44';
@@ -168,6 +216,36 @@ function editNews() {
 	let date = form['date'].value;
 	if (date == '') {
 		form['date'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let time = form['time'].value;
+	if (time == '') {
+		form['time'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let duration = form['duration'].value;
+	if (duration == '') {
+		form['duration'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let place = form['place'].value;
+	if (place == '') {
+		form['place'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let producer = form['producer'].value;
+	if (producer == '') {
+		form['producer'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let choreographer = form['choreographer'].value;
+	if (choreographer == '') {
+		form['choreographer'].style['border'] = '1px solid #f44';
+		correct = false;
+	}
+	let actors = form['actors'].value;
+	if (actors == '') {
+		form['actors'].style['border'] = '1px solid #f44';
 		correct = false;
 	}
 	let img = form['img'].value;
@@ -181,8 +259,15 @@ function editNews() {
 		xhr.open('PUT',`/admin/news/edit`);
 		let data = 	"id=" + id +
 					"&name=" + name +
+					"&author=" + author +
 					"&text=" + text +
 					"&date=" + date +
+					"&time=" + time +
+					"&duration=" + duration +
+					"&place=" + place +
+					"&producer=" + producer +
+					"&choreographer=" + choreographer +
+					"&actors=" + actors +
 					"&img=" + img;
 
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

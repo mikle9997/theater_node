@@ -15,7 +15,13 @@
 									<p>Название:</p>
 								</div>
 								<div class="form-el">
-									<input type="text" name="name" placeholder="Название" autocomplete="off" value="<%= post.title %>"></input>
+									<input type="text" name="name" placeholder="Название" autocomplete="off" value="<%= post.title %>" />
+								</div>
+								<div class="form-el">
+									<p>Автор:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="author" placeholder="Уильям Шекспир" autocomplete="off" value="<%= post.author %>" />
 								</div>
 								<div class="form-el">
 									<p>Описание:</p>
@@ -28,6 +34,42 @@
 								</div>
 								<div class="form-el">
 									<input type="text" name="date" placeholder="ГГГГ-ММ-ДД" autocomplete="off" value="<%= moment(post.date).format('YYYY-MM-DD') %>"></input>
+								</div>
+								<div class="form-el">
+									<p>Время:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="time" placeholder="19:00" autocomplete="off" value="<%= post.time %>"></input>
+								</div>
+								<div class="form-el">
+									<p>Длительность:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="duration" placeholder="3 часа" autocomplete="off" value="<%= post.duration %>"></input>
+								</div>
+								<div class="form-el">
+									<p>Место:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="place" placeholder="Нигде и никогда" autocomplete="off" value="<%= post.place %>"></input>
+								</div>
+								<div class="form-el">
+									<p>Продюсер:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="producer" placeholder="Наталья Богач" autocomplete="off" value="<%= post.producer %>"></input>
+								</div>
+								<div class="form-el">
+									<p>Хореограф:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="choreographer" placeholder="Ольга Горячева" autocomplete="off" value="<%= post.choreographer %>"></input>
+								</div>
+								<div class="form-el">
+									<p>Актеры:</p>
+								</div>
+								<div class="form-el">
+									<input type="text" name="actors" placeholder="Артём Жуйков, Андрей Жуков" autocomplete="off" value="<%= post.actors %>"></input>
 								</div>
 								<div class="form-el">
 									<p>Картинка:</p>

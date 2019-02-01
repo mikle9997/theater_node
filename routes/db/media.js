@@ -45,11 +45,20 @@ function deleteImg( id ) {
         });
     });
 }
+function getById( id ) {
+    return new Promise ((resolve, reject) => {
+        connection.query('select * from media where id = ' + id + ' order by id DESC limit 1;', (error, results, fields) => {
+            if (error) return reject(error);
+            resolve(results[0]);
+        });
+    });
+}
 
 module.exports = {
     getGallery,
     getActors,
     getNews,
     insertData,
-    deleteImg
+    deleteImg,
+    getById
 };

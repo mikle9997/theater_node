@@ -39,6 +39,7 @@ router.get('/add', async ( req, res, next ) => {
   }
 });
 
+// Create new post
 router.post('/add', async ( req, res, next ) => {
   const userLogin = req.session.userLogin;
   const userId = req.session.userId;
@@ -46,8 +47,8 @@ router.post('/add', async ( req, res, next ) => {
   if (!userLogin || !userId) {
     res.redirect('/auth');
   } else {
-    const {name, text, date, img} = req.body;
-    await db.news.insertPost( name, text, date, img);
+    const {name, author, text, date, time, duration, place, producer, choreographer, actors, img} = req.body;
+    await db.news.createPost(name, author, text, date, time, duration, place, producer, choreographer, actors, img);
     res.send();
   }
 });
@@ -68,6 +69,7 @@ router.get('/edit/:id', async ( req, res, next ) => {
   }
 });
 
+// Edit post
 router.put('/edit', async ( req, res, next ) => {
   const userLogin = req.session.userLogin;
   const userId = req.session.userId;
@@ -75,8 +77,8 @@ router.put('/edit', async ( req, res, next ) => {
   if (!userLogin || !userId) {
     res.redirect('/auth');
   } else {
-    const {id, name, text, date, img} = req.body;
-    await db.news.updatePost( id, name, text, date, img);
+    const {id, name, author, text, date, time, duration, place, producer, choreographer, actors, img} = req.body;
+    await db.news.updatePost( id, name, author, text, date, time, duration, place, producer, choreographer, actors, img);
     res.send();
   }
 });

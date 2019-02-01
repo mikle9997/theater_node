@@ -4,11 +4,17 @@
 <% include header %>
 	<div class="afish-page-wrapper">
 		<div class="afish-page">
-			<h1><%= post.title %><br><span><i class="far fa-clock"></i> <%= moment(post.date).format('DD-MM-YYYY') %></span></h1>
+			<h1><%= post.title %><br><span><i class="far fa-clock"></i> <%= moment(post.date).format('DD-MM-YYYY') %> в <%= post.time %></span></h1>
 			<div class="afish-image">
 				<img src="<%= post.img %>" alt="img">
 			</div>
-			<p><%= post.text %></p>
+			<p>Автор: <%= post.author %></p>
+			<p>Длительность: <%= post.duration %></p>
+			<p>Место: <%= post.place %></p>
+			<p>Продюсер: <%= post.producer %></p>
+			<p>Хореограф: <%= post.choreographer %></p>
+			<p>Актеры: <%= post.actors %></p>
+			<p>Описание: <%= post.text %></p>
 		</div>
 	</div>
 
