@@ -1,6 +1,7 @@
 <% include meta %>
 	<link rel="stylesheet" href="/stylesheets/gallery.css">
 	<link rel="stylesheet" href="/stylesheets/modalIMG.css">
+	<link rel="stylesheet" href="/stylesheets/UI.css">
 	<title>Галерея</title>
 	<% include header %>
 
@@ -33,12 +34,14 @@
 			</div>
 	</div>
 	<div class="modal-img">
-		<button onclick="closeModal()">✖</button>
+
+		<div class="close-modal-btn" onclick="closeModal()"></div>
+		<div class="close-modal-btn" onclick="closeModal()"></div>
 		<div class="img-block">
 			<img src="." alt="img" onclick="closeModal()">
 		</div>
-		<div class="prev" onclick="changeSlide(-1)">&#10094;</div>
-		<div class="next" onclick="changeSlide(1)">&#10095;</div>
+		<div class="arrow-btn left-btn" onclick="changeSlide(-1)"></div>
+		<div class="arrow-btn right-btn" onclick="changeSlide(1)"></div>
 	</div>
 
 	<script src="/javascripts/script.js"></script>

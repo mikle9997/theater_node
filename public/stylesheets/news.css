@@ -13,7 +13,8 @@
 .news-block h1 span {
 	position: relative;
 }
-.news-block h1 span::before, .news-block h1 span::after {
+.news-block h1 span::before,
+.news-block h1 span::after {
 	position: absolute;
 	top: 50%;
 	content: '';

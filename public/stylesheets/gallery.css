@@ -14,7 +14,8 @@
 .gallery h1 span {
 	position: relative;
 }
-.gallery h1 span::before, .gallery h1 span::after {
+.gallery h1 span::before,
+.gallery h1 span::after {
 	position: absolute;
 	top: 50%;
 	content: '';

@@ -1,0 +1,78 @@
+.close-modal-btn {
+  position: absolute;
+  width: 100vw;
+  height: 20vh;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.close-modal-btn:nth-of-type(1) {
+  top: 80vh;
+}
+.close-modal-btn::before,
+.close-modal-btn::after {
+  content: '';
+  position: absolute;
+  top: 26px;
+  right: 8px;
+  width: 40px;
+  height: 4px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  transition: .3s;
+}
+.close-modal-btn:nth-of-type(1)::before,
+.close-modal-btn:nth-of-type(1)::after {
+  display: none;
+}
+.close-modal-btn::after {
+  transform: rotate(-45deg);
+}
+.arrow-btn {
+  position: absolute;
+  width: 50vw;
+  height: 60vh;
+  top: 20vh;
+  cursor: pointer;
+}
+.left-btn {
+  left: 0;
+}
+.right-btn {
+  right: 0;
+}
+.left-btn::before,
+.left-btn::after,
+.right-btn::before,
+.right-btn::after {
+  content: '';
+  position: absolute;
+  top: 37%;
+  left: 8px;
+  width: 40px;
+  height: 4px;
+  background-color: #fff;
+  transform: rotate(45deg) translateY(-50%);
+  transform-origin: left;
+  transition: .3s;
+}
+.left-btn::after {
+  transform: rotate(-45deg);
+}
+.right-btn::before,
+.right-btn::after {
+  left: auto;
+  right: 8px;
+  transform-origin: right;
+}
+.right-btn::after {
+  transform: rotate(-45deg) translateY(-50%);
+}
+.close-modal-btn:hover::before,
+.close-modal-btn:hover::after,
+.left-btn:hover::before,
+.left-btn:hover::after,
+.right-btn:hover::before,
+.right-btn:hover::after {
+  background-color: #777;
+}

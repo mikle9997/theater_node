@@ -287,7 +287,8 @@ div.first-block {
 	font-size: 24px;
 	margin-bottom: 16px;
 }
-.contact-footer a, .icons-footer a {
+.contact-footer a,
+.icons-footer a {
 	color: #f1f1f1;
 	-webkit-transition: .3s;
 	-o-transition: .3s;
@@ -295,7 +296,8 @@ div.first-block {
 	display: block;
 	margin-bottom: 8px;
 }
-.contact-footer a:hover, .icons-footer a:hover {
+.contact-footer a:hover,
+.icons-footer a:hover {
 	color: #FFB300;
 }
 .icons-footer {
