@@ -7,7 +7,6 @@ router.get('/', async (req, res, next) => {
   const news = await db.news.getLast( 3 );
   let main = await db.news.getFav();
   if (main) let = news[0];
-  
   res.render('index', { main, news, moment });
 });
 

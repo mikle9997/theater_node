@@ -2,13 +2,13 @@
   background-image: url(/images/slideshow/slideshow_1.jpg);
 }
 .slide:nth-of-type(2) {
-  background-image: url(https://images.pexels.com/photos/713149/pexels-photo-713149.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-image: url(/images/slideshow/slideshow_6.png);
 }
 .slide:nth-of-type(3) {
-  background-image: url(https://images.pexels.com/photos/45258/ballet-production-performance-don-quixote-45258.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-image: url(/images/slideshow/slideshow_3.jpg);
 }
 .slide:nth-of-type(4) {
-  background-image: url(https://images.pexels.com/photos/391535/pexels-photo-391535.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  background-image: url(/images/slideshow/slideshow_2.jpg);
 }
 .slide {
   display: none;
