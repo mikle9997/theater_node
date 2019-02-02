@@ -1,34 +1,17 @@
-const mysql = require('mysql');
-const config = require('../../config');
-
-const connection = mysql.createConnection(config.db);
+const query = require('./query');
 
 function getById( post ) {
-    return new Promise ((resolve, reject) => {
-        const sql_req = 'select * from many_news_has_many_media where news = ' + post + ' order by id DESC;';
-        connection.query(sql_req, (error, results, fields) => {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
+    const sql_req = 'select * from many_news_has_many_media where news = ' + post + ' order by id DESC;';
+    return query.requset( sql_req );
 }
 function addMedia( post, media ) {
-    return new Promise ((resolve, reject) => {
-        const sql_req = "insert into many_news_has_many_media (`news`, `media`) values ( '" + post + "' ,'" + media + "' );";
-        connection.query(sql_req, (error, results, fields) => {
-            if (error) return reject(error);
-            resolve();
-        });
-    });
-}
+    const sql_req = "insert into many_news_has_many_media " +
+     + "(`news`, `media`) values ( '" + post + "' ,'" + media + "' );";
+     return query.requset( sql_req );
+ }
 function deleteMedia( post, media ) {
-    return new Promise ((resolve, reject) => {
-        const sql_req = "delete from many_news_has_many_media where news = " + post + " and media =" + media;
-        connection.query(sql_req, function (error, results) {
-            if (error) return reject(error);
-            resolve();
-        });
-    });
+    const sql_req = "delete from many_news_has_many_media where news = " + post + " and media =" + media;
+    return query.requset( sql_req );
 }
 
 module.exports = {

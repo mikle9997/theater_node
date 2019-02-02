@@ -4,6 +4,7 @@ const media = require('./media');
 const users = require('./users');
 const newsMedia = require('./news-has-media');
 
+// All requsets return promise
 module.exports = {
     news,
     actors,

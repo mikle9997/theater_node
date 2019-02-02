@@ -1,74 +1,42 @@
-const mysql = require('mysql');
-const config = require('../../config');
-
-const connection = mysql.createConnection(config.db);
+const query = require('./query');
 
 function getAll() {
-    return new Promise ((resolve, reject) => {
-        connection.query('select * from news order by date DESC;', (error, results, fields) => {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
+    const sql_req = 'select * from news order by date DESC;';
+    return query.requset( sql_req );
 }
 function getLast( num ) {
-    return new Promise ((resolve, reject) => {
-        const sql_req = 'select * from news order by date DESC limit ' + num + ';';
-        connection.query( sql_req, (error, results, fields) => {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
+    const sql_req = 'select * from news order by date DESC limit ' + num;
+    return query.requset( sql_req );
 }
 function getById( id ) {
-    return new Promise ((resolve, reject) => {
-        connection.query('select * from news where id = ' + id + ' order by date DESC;', (error, results, fields) => {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
+    const sql_req = 'select * from news where id = ' + id + ' order by date DESC;';
+    return query.requset( sql_req );
 }
 function getFav() {
-    return new Promise ((resolve, reject) => {
-        const sql_req = "select * from news where fav = 1 order by date DESC limit 1;";
-        connection.query( sql_req, (error, results, fields) => {
-            if (error) return reject(error);
-            resolve(results[0]);
-        });
-    });
+    const sql_req = "select * from news where fav = 1 order by date DESC limit 1;";
+    return query.requset( sql_req );
 }
 function createPost( name, author, text, date, time, duration, place, producer, choreographer, actors, img ) {
-    return new Promise ((resolve, reject) => {
-        const sql_req = "insert into news (`title`, `author`, `text`, `date`, `time`, `duration`, `place`, `producer`, `choreographer`, `actors`, `img`) " +
-                        "values ( '" + name + "' ,'" + author + "' ,'" + text + "' ,'" + date + "' ,'" + time + "' ,'" + duration + "' ,'" + 
-                        place + "' ,'" + producer + "' ,'" + choreographer + "' ,'" + actors + "' ,'" + img + "' );";
-        connection.query(sql_req, (error, results) => {
-            if (error) return reject(error);
-            resolve();
-        });
-    });
+    const sql_req = "insert into news (`title`, `author`, `text`, `date`, `time`, `duration`, `place`, `producer`, `choreographer`, `actors`, `img`) " +
+                    "values ( '" + name + "' ,'" + author + "' ,'" + text + "' ,'" + date + "' ,'" + time + "' ,'" + duration + "' ,'" + 
+                    place + "' ,'" + producer + "' ,'" + choreographer + "' ,'" + actors + "' ,'" + img + "' );";
+    return query.requset( sql_req );
 }
 function deletePost( id ) {
-    return new Promise ((resolve, reject) => {
-        const sql_req = "delete from news where id = " + id;
-        connection.query(sql_req, (error, results) => {
-            if (error) return reject(error);
-            resolve();
-        });
-    });
+    const sql_req = "delete from news where id = " + id;
+    return query.requset( sql_req );
 }
 function updatePost( id, name, author, text, date, time, duration, place, producer, choreographer, actors, img ) {
-    return new Promise ((resolve, reject) => {
-        const sql_req = "update news set " +
-                        "`title`='" + name + "', `author`='" + author + "', `text`='" + text + "', `date`='" + date + "', `time`='" + time + "', `duration`='" +
-                        duration + "', `place`='" + place + "', `producer`='" + producer + "', `choreographer`='" + choreographer + 
-                        "', `actors`='" + actors + "', `img`='" + img + "' " +
-                        "where id = " + id;
-        connection.query(sql_req, (error, results) => {
-            if (error) return reject(error);
-            resolve();
-        });
-    });
+    const sql_req = "update news set " +
+    "`title`='" + name + "', `author`='" + author + "', `text`='" + text + "', `date`='" + date + "', `time`='" + time + "', `duration`='" +
+    duration + "', `place`='" + place + "', `producer`='" + producer + "', `choreographer`='" + choreographer + 
+    "', `actors`='" + actors + "', `img`='" + img + "' " +
+    "where id = " + id;
+    return query.requset( sql_req );
+}
+function getBetween( limit, offset ) {
+    const sql_req = 'select * from news order by date DESC limit ' + limit + ' offset ' + offset + ';';
+    return query.requset( sql_req );
 }
 
 module.exports = {
@@ -78,5 +46,6 @@ module.exports = {
     createPost,
     deletePost,
     updatePost,
-    getFav
+    getFav,
+    getBetween
 };

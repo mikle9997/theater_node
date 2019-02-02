@@ -1,57 +1,28 @@
-const mysql = require('mysql');
-const config = require('../../config');
-
-const connection = mysql.createConnection(config.db);
+const query = require('./query');
 
 function getGallery() {
-    return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from media where type_of = "gallery" order by id DESC;', function (error, results, fields) {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
+    const sql_req = 'SELECT * from media where type_of = "gallery" order by id DESC;';
+    return query.requset( sql_req );
 }
 function getActors() {
-    return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from media where type_of = "actor" order by id DESC;', function (error, results, fields) {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
+    const sql_req = 'SELECT * from media where type_of = "actor" order by id DESC;';
+    return query.requset( sql_req );
 }
 function getNews() {
-    return new Promise ((resolve, reject) => {
-        connection.query('SELECT * from media where type_of = "news" order by id DESC;', function (error, results, fields) {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
+    const sql_req = 'SELECT * from media where type_of = "news" order by id DESC;';
+    return query.requset( sql_req );
 }
 function insertData( img, type_of ) {
-    return new Promise ( (resolve, reject) => {
-        const sql_query = "insert into media (`img`, `type_of`) values ( '" + img + "' ,'" + type_of + "' );";
-        connection.query( sql_query, function (error, results, fields) {
-            if (error) return reject(error);
-            resolve(results);
-        });
-    });
+    const sql_query = "insert into media (`img`, `type_of`) values ( '" + img + "' ,'" + type_of + "' );";
+    return query.requset( sql_req );
 }
 function deleteImg( id ) {
-    return new Promise ((resolve, reject) => {
-        const sql_req = "delete from media where id = " + id;
-        connection.query(sql_req, function (error, results) {
-            if (error) return reject(error);
-            resolve();
-        });
-    });
+    const sql_req = "delete from media where id = " + id;
+    return query.requset( sql_req );
 }
 function getById( id ) {
-    return new Promise ((resolve, reject) => {
-        connection.query('select * from media where id = ' + id + ' order by id DESC limit 1;', (error, results, fields) => {
-            if (error) return reject(error);
-            resolve(results[0]);
-        });
-    });
+    const sql_req = 'select * from media where id = ' + id + ' order by id DESC limit 1;';
+    return query.requset( sql_req );
 }
 
 module.exports = {
