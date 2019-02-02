@@ -4,20 +4,24 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Вход</title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
 </head>
 <body>
-    <form method="post" class="login">
-            <h2>Вход</h2>
-            <div class="form-group">
-                <label for="loginForm">Логин:</label>
-                <input type="login" name="login" class="form-control" id="login-login">
-            </div>
-            <div class="form-group">
-                <label for="loginForm">Пароль:</label>
-                <input type="password" name="password" class="form-control" id="login-password">
-            </div>
-            <button type="submit" class="btn btn-primary login-button">Войти</button>
-    </form>
+
+    <div class="wrapper">
+      <div class="form-holder">
+        <h1>Вход в подземелье</h1>
+        <form method="post" class="login">
+                <div class="form-group">
+                    <p>Назовись:</p><input type="login" name="login" class="form-control" id="login-login" placeholder="John Doe" />
+                </div>
+                <div class="form-group">
+                    <p>Пароль:</p><input type="password" name="password" class="form-control" id="login-password" placeholder="*****" />
+                </div>
+                <button type="submit" class="login-button">Войти</button>
+        </form>
+      </div>
+    </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="/javascripts/auth.js"></script>

@@ -91,7 +91,9 @@ router.post("/", async (req, res) => {
       fields
     });
   } else {
-    const user = await db.users.getByLogin( login );    
+    const users = await db.users.getByLogin( login );
+    const user = users[0];
+    
     try {
       if (!user) {
         res.json({

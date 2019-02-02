@@ -49,21 +49,21 @@ $(function() {
   
       removeErrors();
   
-      var data = {
+      let data = {
         login: $("#login-login").val(),
         password: $("#login-password").val()
       };
-  
+
       $.ajax({
         type: "POST",
         data: JSON.stringify(data),
         contentType: "application/json",
         url: "/auth"
-      }).done(function(data) {
+      }).done(function(data) {        
         if (!data.ok) {
           removeErrors();
   
-          $(".login h2").after('<p class="error">' + data.error + "</p>");
+          $(".form-holder h1").after('<p class="error">' + data.error + "</p>");
           if (data.fields) {
             data.fields.forEach(function(item) {
               $("input[name=" + item + "]").addClass("error");
@@ -75,5 +75,5 @@ $(function() {
         }
       });
     });
-  });
+});
   
