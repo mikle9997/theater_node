@@ -23,13 +23,15 @@
 					<div class="text">
 						<span>Ближайшее выступление</span>
 					</div>
-						<select class="select-soon-scene" name="soon-scene" onchange="changeSoonScene()">
-							<option value="Цыганская опера">Цыганская опера</option>
-							<option value="Французский балет">Французский балет</option>
-							<option value="Драматичная комедия">Драматичная комедия</option>
-							<option value="Замок Дракулы">Замок Дракулы</option>
-							<option value="Пироженное рагу">Пироженное рагу</option>
-						</select>
+					<select class="select-soon-scene" name="soon-scene" onchange="changeSoonScene(this)">
+						<% news.forEach( (post) => { %>
+							<option 
+							<% if (post.fav) { %> 
+								selected="selected"
+							<% } %>
+							value="<%= post.id%>"><%= post.title%></option>
+						<% }); %>
+					</select>
 				</div>
 				<% news.forEach( (post) => { %>
 							<div class="list-element">

@@ -365,7 +365,7 @@ function deleteIMG() {
 			let xhr = new XMLHttpRequest();
 
 			xhr.open('DELETE',`/admin/imgs`);
-			let data = 	"id=" + item.value;
+			let data = "id=" + item.value;
 
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 			xhr.addEventListener('load', function(event) {
@@ -390,6 +390,16 @@ function hideUp() {
 	imgup.style['display'] = 'none';
 }
 
-function changeSoonScene() {
-	// ajax запрос на сервак, с сообщением о смене главной картиночки
+function changeSoonScene(item) {
+	let xhr = new XMLHttpRequest();
+
+	xhr.open('PUT',`/admin/news/soon-scene`);
+	let data = "id=" + item.value;
+
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.addEventListener('error', function(event) {
+		alert('Что-то пошло не так. Молитва должна излечить недуг.');
+	});
+
+	xhr.send(data);
 }

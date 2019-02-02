@@ -5,7 +5,7 @@ function getAll() {
     return query.requset( sql_req );
 }
 function getLast( num ) {
-    const sql_req = 'select * from news order by date DESC limit ' + num;
+    const sql_req = 'select * from news where fav = 0 order by date DESC limit ' + num;
     return query.requset( sql_req );
 }
 function getById( id ) {
@@ -38,6 +38,10 @@ function getBetween( limit, offset ) {
     const sql_req = 'select * from news order by date DESC limit ' + limit + ' offset ' + offset + ';';
     return query.requset( sql_req );
 }
+function setFav( id, fav ) {
+    const sql_req = "update news set `fav`= " + fav + " where id= " + id;
+    return query.requset( sql_req );
+}
 
 module.exports = {
     getAll,
@@ -47,5 +51,6 @@ module.exports = {
     deletePost,
     updatePost,
     getFav,
-    getBetween
+    getBetween,
+    setFav
 };

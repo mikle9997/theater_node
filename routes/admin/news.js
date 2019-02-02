@@ -83,4 +83,17 @@ router.put('/edit', async ( req, res, next ) => {
   }
 });
 
+// Set soonscene
+router.put('/soon-scene', async ( req, res, next ) => {
+  const id = req.body.id;
+  const oldPost = await db.news.getFav();
+  let oldId = 0;
+  if (oldPost[0]) {
+    oldId = oldPost[0].id;
+    db.news.setFav( oldId, 0 );
+  }
+  db.news.setFav( id, 1 ); 
+  res.send();
+});
+
 module.exports = router;
