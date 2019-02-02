@@ -37,7 +37,7 @@ function addActor() {
 		xhr.addEventListener('error', function(event) {
 			alert('Что-то пошло не так. Молитва должна излечить недуг.');
 		});
-		
+
 		xhr.send(data);
 	}
 }
@@ -81,14 +81,14 @@ function editActor() {
 		xhr.addEventListener('error', function(event) {
 			alert('Что-то пошло не так. Молитва должна излечить недуг.');
 		});
-		
+
 		xhr.send(data);
 	}
 }
 
 function deleteActor(id) {
 	let xhr = new XMLHttpRequest();
-	
+
 	xhr.open('DELETE',`/admin/actors`);
 	let data = 	"id=" + id;
 
@@ -99,13 +99,13 @@ function deleteActor(id) {
 	xhr.addEventListener('error', function(event) {
 		alert('Что-то пошло не так. Молитва должна излечить недуг.');
 	});
-	
+
 	xhr.send(data);
 }
 
 function addNews() {
 	let correct = true;
-	
+
 
 	let name = form['name'].value;
 	if (name == '') {
@@ -182,11 +182,11 @@ function addNews() {
 		xhr.addEventListener('load', function(event) {
 			location.assign('/admin/news');
 		});
-		
+
 		xhr.addEventListener('error', function(event) {
 			alert('Что-то пошло не так. Молитва должна излечить недуг.');
 		});
-		
+
 		xhr.send(data);
 	}
 }
@@ -277,14 +277,14 @@ function editNews() {
 		xhr.addEventListener('error', function(event) {
 			alert('Что-то пошло не так. Молитва должна излечить недуг.');
 		});
-		
+
 		xhr.send(data);
 	}
 }
 
 function deleteNews(id) {
 	let xhr = new XMLHttpRequest();
-	
+
 	xhr.open('DELETE',`/admin/news`);
 	let data = 	"id=" + id;
 
@@ -295,7 +295,7 @@ function deleteNews(id) {
 	xhr.addEventListener('error', function(event) {
 		alert('Что-то пошло не так. Молитва должна излечить недуг.');
 	});
-	
+
 	xhr.send(data);
 }
 
@@ -358,15 +358,15 @@ function chooseImgForEditMedia( img ) {
 	document.querySelector('.img').setAttribute('src', img_src);
 }
 
-function deleteIMG() {	
+function deleteIMG() {
 	let images = form['image'];
 	images.forEach( item => {
 		if (item.checked) {
 			let xhr = new XMLHttpRequest();
-	
+
 			xhr.open('DELETE',`/admin/imgs`);
 			let data = 	"id=" + item.value;
-		
+
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 			xhr.addEventListener('load', function(event) {
 				location.reload();
@@ -374,10 +374,12 @@ function deleteIMG() {
 			xhr.addEventListener('error', function(event) {
 				alert('Что-то пошло не так. Молитва должна излечить недуг.');
 			});
-			
+
 			xhr.send(data);
 		}
 	});
+
+	document.querySelector('.reset').click()
 }
 
 let imgup = document.querySelector('.upload-img-block');

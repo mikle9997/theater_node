@@ -1,80 +1,94 @@
-var colBtn = document.querySelector('#collapse-menu-button');
-var colMenu = document.querySelector('#resp-menu');
-var opCir = document.querySelector('#opening-circle');
-var checkVar = [false, false];
-var lastPoint;
-var page = document.querySelector('body').getAttribute('data-page');
-var scrollProgress = document.querySelector('#scroll-progress');
-var header = document.querySelector('.header');
-var headerLink = document.querySelectorAll('.header a');
+let colBtn = document.querySelector('#collapse-menu-button')
+let colMenu = document.querySelector('#resp-menu')
+let opCir = document.querySelector('#opening-circle')
+let checkVar = [false, false]
+let lastPoint
+let page = document.querySelector('body').getAttribute('data-page')
+let scrollProgress = document.querySelector('#scroll-progress')
+let header = document.querySelector('.header')
+let headerLink = document.querySelectorAll('.header a')
 
 function openMenu() {
 	if (checkVar[0]) {
-			colMenu.style['display'] = 'none';
-			opCir.style['transform'] = 'translate(50%,-50%) scale(0,0)';
-			document.querySelector('.logo-block').style['background-color'] = 'transparent';
+			colMenu.style['display'] = 'none'
+			opCir.style['transform'] = 'translate(50%,-50%) scale(0,0)'
+			document.querySelector('.logo-block').style['background-color'] = 'transparent'
 			if (!(checkVar[1])) {
-				document.querySelector('.logo-block a').style['color'] = '#eee';
-				colBtn.style['color'] = '#eee';
+				document.querySelector('.logo-block a').style['color'] = '#eee'
+				colBtn.style['color'] = '#eee'
 			}
-			colBtn.innerHTML = '<span>≡</span>';
-			document.querySelector('body').style['overflow'] = 'auto';
-			checkVar[0] = false;
+			colBtn.innerHTML = '<span>≡</span>'
+			document.querySelector('body').style['overflow'] = 'auto'
+			checkVar[0] = false
 		} else {
-			colMenu.style['display'] = 'flex';
-			opCir.style['transform'] = 'translate(50%,-50%) scale(1,1)';
-			document.querySelector('.logo-block').style['background-color'] = 'rgba(255,255,255,0.9)';
-			document.querySelector('.logo-block a').style['color'] = '#333';
-			colBtn.style['color'] = '#333';
-			colBtn.innerHTML = '<span>✖</span>';
-			document.querySelector('body').style['overflow'] = 'hidden';
-			checkVar[0] = true;
+			colMenu.style['display'] = 'flex'
+			opCir.style['transform'] = 'translate(50%,-50%) scale(1,1)'
+			document.querySelector('.logo-block').style['background-color'] = 'rgba(255,255,255,0.9)'
+			document.querySelector('.logo-block a').style['color'] = '#333'
+			colBtn.style['color'] = '#333'
+			colBtn.innerHTML = '<span>✖</span>'
+			document.querySelector('body').style['overflow'] = 'hidden'
+			checkVar[0] = true
 		}
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	colMenu.innerHTML = document.querySelectorAll('.menu')[0].innerHTML;
+	colMenu.innerHTML = document.querySelectorAll('.menu')[0].innerHTML
 
-	colBtn.addEventListener('click', openMenu);
-	document.querySelectorAll('#resp-menu .menu-el').forEach( (obj) => { obj.addEventListener('click', openMenu);});
+	colBtn.addEventListener('click', openMenu)
+	document.querySelectorAll('#resp-menu .menu-el').forEach( obj => {
+		obj.addEventListener('click', openMenu)
+	});
 
-	document.querySelectorAll('.animating').forEach( (obj) => { Visible(obj);});
-});
+	document.querySelectorAll('.animating').forEach( obj => { Visible(obj) })
 
-window.addEventListener('scroll', scrolling);
+	// извлекает текст описания новости и преобразует сбитые кодировкой переносы строк в тег <br>
+	if (document.querySelector('.description'))
+		document.querySelector('.description').innerHTML = document.querySelector('.description')
+		.innerHTML.replace(/gt;brlt;/g, '<br>')
+})
+
+window.addEventListener('scroll', scrolling)
 
 function scrolling() {
-	if (page == 'index') {if ((document.querySelector('.first-block').getBoundingClientRect().bottom <= 0) && (window.pageYOffset < lastPoint)) {
-			openMenuS();
-			scrollProgress.style['top'] = '52px';
-			scrollProgress.style['transition'] = '.3s';
+	if (page == 'index') {
+		if ((document.querySelector('.first-block').getBoundingClientRect().bottom <= 0)
+			&& (window.pageYOffset < lastPoint)) {
+			openMenuS()
+			scrollProgress.style['top'] = '52px'
+			scrollProgress.style['transition'] = '.3s'
 		} else {
-			header.style['position'] = 'absolute';
-			header.style['background-color'] = 'transparent';
-			headerLink.forEach( (obj) => { obj.style['color'] = '#fff';});
-			colBtn.style['color'] = '#eee';
+			header.style['position'] = 'absolute'
+			header.style['background-color'] = 'transparent'
+			headerLink.forEach( obj => {
+				obj.style['color'] = '#fff'
+			})
+			colBtn.style['color'] = '#eee'
 			if (document.querySelector('.first-block').getBoundingClientRect().bottom <= 0) {
-				header.style['top'] = '-52px';
+				header.style['top'] = '-52px'
 			}
-			checkVar[1] = false;
-			scrollProgress.style['top'] = 0;
-			scrollProgress.style['transition'] = '0s';
+			checkVar[1] = false
+			scrollProgress.style['top'] = 0
+			scrollProgress.style['transition'] = '0s'
 		}}
 
-	lastPoint = window.pageYOffset;
+	lastPoint = window.pageYOffset
 
-	document.querySelectorAll('.animating').forEach( (obj) => { Visible(obj);});
+	document.querySelectorAll('.animating').forEach( obj => { Visible(obj) })
 
-	scrollProgress.style['width'] = (window.pageYOffset / (document.body.scrollHeight - window.innerHeight)) * window.innerWidth + 'px';
+	scrollProgress.style['width'] = (window.pageYOffset
+		/ (document.body.scrollHeight - window.innerHeight)) * window.innerWidth + 'px'
 }
 
 function openMenuS() {
-	header.style['position'] = 'fixed';
-	header.style['background-color'] = '#fff';
-	headerLink.forEach( (obj) => { obj.style['color'] = '#333';});
-	colBtn.style['color'] = '#333';
-	header.style['top'] = 0;
-	checkVar[1] = true;
+	header.style['position'] = 'fixed'
+	header.style['background-color'] = '#fff'
+	headerLink.forEach( obj => {
+		obj.style['color'] = '#333'
+	})
+	colBtn.style['color'] = '#333'
+	header.style['top'] = 0
+	checkVar[1] = true
 }
 
 function Visible(target) {
@@ -94,29 +108,32 @@ function Visible(target) {
 	  targetPosition.top < windowPosition.bottom &&
 	  targetPosition.right > windowPosition.left &&
 	  targetPosition.left < windowPosition.right) {
-		target.style['transition'] = '.5s';
+		target.style['transition'] = '.5s'
 		setTimeout(() => {
-			target.style['opacity'] = 1;
-			target.style['transform'] = 'scale(1,1)';
-		}, 300); 
+			target.style['opacity'] = 1
+			target.style['transform'] = 'scale(1,1)'
+		}, 300)
 }};
 
-document.querySelectorAll('.card-img').forEach(c=>{
-	var src = c.getAttribute('data-src');
-	c.style['background-image'] = `url(${src})`;
+document.querySelectorAll('.card-img').forEach( c =>{
+	var src = c.getAttribute('data-src')
+	c.style['background-image'] = `url(${src})`
 })
 
+
+// обрезает текст, длина которого превышает 80 символов
 function cutText(el) {
+	el.innerHTML = el.innerHTML.replace(/gt;brlt;/g, ' ')
 	if (el.innerHTML.length > 80) {
-		let text = el.innerHTML;
-		el.innerHTML = '';
-		for (let i = 0; i < 80; i++) {
-			el.innerHTML += text[i];
-		}
-		el.innerHTML += '...';
+		let text = el.innerHTML
+		el.innerHTML = ''
+		for (let i = 0; i < 80; i++)
+			el.innerHTML += text[i]
+		el.innerHTML += '...'
 	}
 }
 
-document.querySelectorAll('p[data-cut]').forEach(c=>{
-	cutText(c);
+// передает все параграфы с аттирбутом data-cut в функцию обрезания
+document.querySelectorAll('p[data-cut]').forEach( text =>{
+	cutText(text)
 })
