@@ -90,7 +90,8 @@ router.delete('/', async ( req, res, next ) => {
     res.redirect('/auth');
   } else {
     const { id }  = req.body;    
-    const { img } = await db.media.getById(id);
+    const imgs = await db.media.getById(id);
+    const { img } = imgs[0];
 
     fs.unlink( 'public' + img, (err) => {
       if (err) console.log(err);
