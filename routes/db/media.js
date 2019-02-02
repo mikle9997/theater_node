@@ -13,7 +13,7 @@ function getNews() {
     return query.requset( sql_req );
 }
 function insertData( img, type_of ) {
-    const sql_query = "insert into media (`img`, `type_of`) values ( '" + img + "' ,'" + type_of + "' );";
+    const sql_req = "insert into media (`img`, `type_of`) values ( '" + img + "' ,'" + type_of + "' );";
     return query.requset( sql_req );
 }
 function deleteImg( id ) {
