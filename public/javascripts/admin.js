@@ -389,3 +389,7 @@ function showUp() {
 function hideUp() {
 	imgup.style['display'] = 'none';
 }
+
+function changeSoonScene() {
+	// ajax запрос на сервак, с сообщением о смене главной картиночки
+}

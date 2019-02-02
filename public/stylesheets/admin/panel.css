@@ -5,7 +5,14 @@ body {
 	background-color: #263238;
 	min-width: 1200px;
 }
-body,h1,h2,h3,h4,h5,h6,p {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
 	margin: 0;
 	padding: 0;
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -22,7 +29,12 @@ header {
 header a {
 	color: #fff;
 }
-input[type=text], input[type=password], input[type=number], textarea, select {
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=date],
+textarea,
+select {
 	width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -36,10 +48,16 @@ input[type=text], input[type=password], input[type=number], textarea, select {
   transition: .3s;
   outline: none;
 }
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
 	box-shadow: 0 0 2px #4af;
 }
-input[type=submit], input[type=reset], input[type=button], label.file, .href-btn {
+input[type=submit],
+input[type=reset],
+input[type=button],
+label.file,
+.href-btn {
   color: white;
   padding: 10px 16px;
   border: none;
@@ -401,7 +419,8 @@ li.active::after {
 .row .col-25 {
 	width: 24%;
 }
-.select-img-block, .upload-img-block {
+.select-img-block,
+.upload-img-block {
 	display: none;
 	position: absolute;
 	top: 0;
@@ -415,7 +434,8 @@ li.active::after {
 	z-index: 9999;
 	padding: 2% 0;
 }
-.select-img-block>button, .upload-img-block>button {
+.select-img-block > button,
+.upload-img-block > button {
 	position: absolute;
 	top: 30px;
 	right: 50px;
@@ -428,7 +448,10 @@ li.active::after {
 	width: 46px;
 	height: 40px;
 }
-.upload-img-block>button::before, .upload-img-block>button::after, .select-img-block>button::before, .select-img-block>button::after {
+.upload-img-block > button::before,
+.upload-img-block > button::after,
+.select-img-block > button::before,
+.select-img-block > button::after {
 	content: '';
 	position: absolute;
 	top: 15px;
@@ -442,7 +465,8 @@ li.active::after {
 	-o-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
-.upload-img-block>button::after, .select-img-block>button::after {
+.upload-img-block > button::after,
+.select-img-block > button::after {
 	-webkit-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);
@@ -459,4 +483,7 @@ li.active::after {
 .wrapper-img select {
 	display: block;
 	margin-bottom: 30px;
+}
+.select-soon-scene {
+	width: 90%;
 }

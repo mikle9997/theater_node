@@ -52,22 +52,25 @@
   	<a class="next" onclick="plusSlides(1)">&#10095;</a>
   	<div class="dots">
 		  <div>
-		  	<span onclick="currentSlide(1)"></span> 
-		  	<span onclick="currentSlide(2)"></span> 
+		  	<span onclick="currentSlide(1)"></span>
+		  	<span onclick="currentSlide(2)"></span>
 		  	<span onclick="currentSlide(3)"></span>
 		  	<span onclick="currentSlide(4)"></span>
 		  </div>
 		</div>
 	</div>
 	<div class="second-block block">
-		<div class="soon-scene animating">
-			<svg>
-				<polygon points="500,0 500,400 400,400" style="fill:#f1f1f1;stroke:#f1f1f1;stroke-width:1" />
-			</svg>
-			<div>
-				<h2>Готовится к постановке</h2>
-				<h4><%= main.title %></h4>
-				<p><%= main.text %></p>
+		<h2 class="head-text"><a href="/news">БЛИЖАЙШЕЕ СОБЫТИЕ</a></h2>
+		<div class="second-block-flex-container">
+			<div class="soon-scene animating">
+				<svg>
+					<polygon points="500,0 500,400 400,400" style="fill:#f1f1f1;stroke:#f1f1f1;stroke-width:1" />
+				</svg>
+				<div>
+					<h2>Готовится к постановке</h2>
+					<h4><%= main.title %></h4>
+					<p><%= main.text %></p>
+				</div>
 			</div>
 		</div>
 	</div>

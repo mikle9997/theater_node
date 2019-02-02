@@ -50,6 +50,7 @@ h1,h2,h3,h4,h5,h6,p {
 	padding: 6vh 0vw 8vh 0vw;
 	font-size: 40px;
 	text-align: center;
+	margin-top: 40px;
 }
 .head-text a {
 	cursor: pointer;
@@ -78,7 +79,7 @@ div.first-block {
 	background-color: #eee;
 	position: relative;
 }
-.second-block {
+.second-block-flex-container {
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
