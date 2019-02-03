@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="/stylesheets/main.css">
 	<link rel="stylesheet" href="/stylesheets/media.css">
 	<link rel="stylesheet" href="/stylesheets/slideshow.css">
+	<link rel="stylesheet" href="/stylesheets/card.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 <body data-page="index">
@@ -78,18 +79,20 @@
 		<h2 class="head-text"><a href="/news">ПОСЛЕДНИЕ ВЫСТУПЛЕНИЯ</a></h2>
 		<div class="flex-container">
 			<% news.forEach( function (post) { %>
-				<div class="tab animating">
-						<a href="/news-page/<%= post.id %>"><img src="<%= post.img %>" alt="img"/>
-							<div>
-								<h3><%= post.title %></h3>
-								<hr/>
-								<p data-cut><%= post.text %></p>
-								<p class="pod">Подробнее...</p>
-							</div>
+				<div class="tab">
+					<a href="/news-page/<%= post.id %>">
+						<img src="<%= post.img %>" alt="img">
+						<div class="descript">
+							<p class="title"><%= post.title %></p>
+							<hr>
+							<p class="text-content" data-cut><%= post.text %></p>
+							<p class="info">Подробнее...</p>
 							<footer><i class="far fa-clock"></i> <%= moment(post.date).format('DD-MM-YYYY') %></footer>
-						</a>
-					</div>
+						</div>
+					</a>
+				</div>
 			<% }); %>
+		</div>
 		</div>
 	</div>
 	<div class="footer">
