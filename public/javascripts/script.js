@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// извлекает текст описания новости и преобразует сбитые кодировкой переносы строк в тег <br>
 	if (document.querySelector('.description'))
 		document.querySelector('.description').innerHTML = document.querySelector('.description')
-		.innerHTML.replace(/gt;brlt;/g, '<br>')
+		.innerHTML.replace(/&lt;br&gt;/g, '<br>')
 })
 
 window.addEventListener('scroll', scrolling)
@@ -123,7 +123,7 @@ document.querySelectorAll('.card-img').forEach( c =>{
 
 // обрезает текст, длина которого превышает 80 символов
 function cutText(el) {
-	el.innerHTML = el.innerHTML.replace(/gt;brlt;/g, ' ')
+	el.innerHTML = el.innerHTML.replace(/&lt;br&gt;/g, ' ')
 	if (el.innerHTML.length > 80) {
 		let text = el.innerHTML
 		el.innerHTML = ''

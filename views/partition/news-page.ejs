@@ -4,10 +4,10 @@
 <% include header %>
 	<div class="afish-page-wrapper">
 		<div class="news-block">
-			<div class="table-cell">
+			<div class="table-cell image-cell">
 				<img src="<%= post.img %>" alt="img">
 			</div>
-			<div class="table-cell">
+			<div class="table-cell text-cell">
 				<span class="clocks"><i class="far fa-clock"></i> <%= moment(post.date).format('DD-MM-YYYY') %> в <%= post.time %></span>
 				<h2><%= post.title %></h2>
 				<p class="author"><%= post.author %></p>
@@ -17,8 +17,9 @@
 				<p><span>Продюсер</span>: <%= post.producer %></p>
 				<p><span>Хореограф</span>: <%= post.choreographer %></p>
 				<p><span>Актеры</span>: <%= post.actors %></p>
+			</div>
+			<div class="table-cell description-cell">
 				<p class="description"><span>Описание</span>: <br> <%= post.text %></p>
-				<p class="glowing">Вход свободный!</p>
 			</div>
 		</div>
 	</div>

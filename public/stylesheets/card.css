@@ -49,7 +49,7 @@
 }
 .tab .text-content {
   color: #555;
-  font-size: 13px;
+  font-size: 14px;
 }
 .tab:hover .descript {
   transform: translate(-50%, 0);
@@ -68,7 +68,8 @@
     overflow: auto;
   }
   .tab img {
-    height: 450px;
+    width: 100%;
+    height: auto;
   }
   .tab:hover .descript {
     transform: none;

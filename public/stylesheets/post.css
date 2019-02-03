@@ -13,7 +13,9 @@
 .news-block {
   width: 80vw;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: minmax(100px, auto);
+	grid-template-areas: "img text text" "description description description";
   background-color: #fff;
   position: relative;
   border-radius: 4px;
@@ -29,35 +31,36 @@
   left: 0;
 }
 .table-cell {
-  padding: 20px;
   position: relative;
+	padding: 16px;
 }
 .table-cell img {
-  height: 84vh;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+	height: auto;
 }
 .table-cell h2 {
   font-size: 34px;
   margin: 10px;
+	margin-top: 40px;
 }
 .table-cell hr {
-  border: 1px  #333 solid;
-  width: 60%;
+  border: 1px #aaa solid;
+  width: 70%;
+	margin: 0;
 }
 .table-cell .author {
   font-size: 20px;
-  color: #555;
-  font-weight: bold;
+  color: #444;
   margin-bottom: 20px;
 }
 .table-cell p {
   margin: 10px 10px;
   color: #666;
+	font-size: 16px;
 }
 .table-cell p span {
-  font-weight: bold;
-  color: #555;
+  color: #444;
+	font-size: 18px;
 }
 .clocks {
   position: absolute;
@@ -69,32 +72,20 @@
   font-weight: bold;
   border-bottom-left-radius: 3px;
 }
-.description {
-  padding-top: 30px;
+.table-cell .description {
+	margin-top: 0;
 }
 .description span {
   font-size: 18px;
 }
-.glowing {
-  animation-name: glow;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  font-size: 40px;
-  color: #1cff00;
-  padding-top: 30px;
+.image-cell {
+	grid-area: img;
 }
-@keyframes glow {
-  from {
-    color: #1cff00;
-  }
-  50% {
-    color: #ff4500;
-    /* font-size: 40px; */
-  }
-  to {
-    color: #00baff;
-  }
+.text-cell {
+	grid-area: text;
+}
+.description-cell {
+	grid-area: description;
 }
 @media (max-width: 1000px) {
   .wrapper {
@@ -102,7 +93,9 @@
   }
   .news-block {
     width: 100vw;
-    grid-template-columns: 1fr;
+		grid-template-columns: 1fr;
+		grid-auto-rows: minmax(100px, auto);
+		grid-template-areas: "img" "text" "description";
   }
   .table-cell img {
     width: 100%;
