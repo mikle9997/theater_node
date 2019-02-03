@@ -87,11 +87,17 @@
 .description-cell {
 	grid-area: description;
 }
+.second-block .news-block {
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: minmax(100px, auto);
+	grid-template-areas: "img text text";
+}
 @media (max-width: 1000px) {
   .wrapper {
     padding: 10vh 0;
   }
-  .news-block {
+	.news-block,
+	.second-block .news-block {
     width: 100vw;
 		grid-template-columns: 1fr;
 		grid-auto-rows: minmax(100px, auto);

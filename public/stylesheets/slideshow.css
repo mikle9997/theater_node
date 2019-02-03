@@ -22,6 +22,10 @@
 }
 .slide h2 {
   color: #eee;
+  width: 100%;
+  background-color: #000A;
+  text-align: center;
+  padding: 4vh 24px;
 }
 .prev,
 .next {

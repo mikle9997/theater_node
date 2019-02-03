@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="/stylesheets/media.css">
 	<link rel="stylesheet" href="/stylesheets/slideshow.css">
 	<link rel="stylesheet" href="/stylesheets/card.css">
+	<link rel="stylesheet" href="/stylesheets/post.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 <body data-page="index">
@@ -63,13 +64,14 @@
 	<div class="second-block block">
 		<h2 class="head-text"><a href="/news">БЛИЖАЙШЕЕ СОБЫТИЕ</a></h2>
 		<div class="second-block-flex-container">
-			<div class="soon-scene animating">
-				<svg>
-					<polygon points="500,0 500,400 400,400" style="fill:#f1f1f1;stroke:#f1f1f1;stroke-width:1" />
-				</svg>
-				<div>
+			<div class="news-block animating">
+				<div class="table-cell image-cell">
+					<img src="<%= main.img %>" alt="img">
+				</div>
+				<div class="table-cell text-cell">
+					<span class="clocks"><i class="far fa-clock"></i> <%= moment(main.date).format('DD-MM-YYYY') %> в <%= main.time %></span>
 					<h2>Готовится к постановке</h2>
-					<h4><%= main.title %></h4>
+					<p class="author"><%= main.title %></p>
 					<p><%= main.text %></p>
 				</div>
 			</div>
