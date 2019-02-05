@@ -119,21 +119,3 @@ document.querySelectorAll('.card-img').forEach( c =>{
 	var src = c.getAttribute('data-src')
 	c.style['background-image'] = `url(${src})`
 })
-
-
-// обрезает текст, длина которого превышает 80 символов
-function cutText(el) {
-	el.innerHTML = el.innerHTML.replace(/&lt;br&gt;/g, ' ')
-	if (el.innerHTML.length > 80) {
-		let text = el.innerHTML
-		el.innerHTML = ''
-		for (let i = 0; i < 80; i++)
-			el.innerHTML += text[i]
-		el.innerHTML += '...'
-	}
-}
-
-// передает все параграфы с аттирбутом data-cut в функцию обрезания
-document.querySelectorAll('p[data-cut]').forEach( text =>{
-	cutText(text)
-})

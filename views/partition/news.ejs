@@ -6,17 +6,19 @@
 		<h1 class="first-block"><span>Постановки</span></h1>
 		<div class="content">
 			<% news.forEach( function (post) { %>
-				<div class="flex-container">
-					<div>
+				<a href="news-page/<%= post.id %>">
+					<div class="flex-container">
 						<div>
-							<h2><%= post.title %></h2>
-							<p data-cut><%= post.text %></p>
-							<a href="news-page/<%= post.id %>">Подробнее...</a>
-							<footer><i class="far fa-clock"></i> <%= moment(post.date).format('DD-MM-YYYY') %></footer>
+							<div>
+								<h2><%= post.title %></h2>
+								<p><%= post.text.substring(0,200) %>...</p>
+								<p class="details">Подробнее...</p>
+								<footer><i class="far fa-clock"></i> <%= moment(post.date).format('DD-MM-YYYY') %></footer>
+							</div>
 						</div>
+						<img src='<%= post.img %>' alt="img">
 					</div>
-					<img src='<%= post.img %>' alt="img">
-				</div>
+				</a>
 			<% }); %>
 	</div>
 

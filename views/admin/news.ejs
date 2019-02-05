@@ -25,8 +25,8 @@
 					</div>
 					<select class="select-soon-scene" name="soon-scene" onchange="changeSoonScene(this)">
 						<% news.forEach( (post) => { %>
-							<option 
-							<% if (post.fav) { %> 
+							<option
+							<% if (post.fav) { %>
 								selected="selected"
 							<% } %>
 							value="<%= post.id%>"><%= post.title%></option>
@@ -38,7 +38,7 @@
 								<img src="<%= post.img %>" alt="img"/>
 								<div class="text">
 									<h4><%= post.title %></h4>
-									<p data-cut><%= post.text %></p>
+									<p><%= post.text.substring(0,100) %>...</p>
 									<p class="date"><%= moment(post.date).format('DD-MM-YYYY') %></p>
 									<a href="/admin/news/edit/<%= post.id %>" class="href-btn ok"><i class="th-edit"></i> Изменить</a>
 									<button class="href-btn danger" onclick="deleteNews(<%= post.id %>)"><i class="th-trash"></i> Удалить</button>

@@ -42,6 +42,7 @@
   font-size: 34px;
   margin: 10px;
 	margin-top: 40px;
+	color: #212121;
 }
 .table-cell hr {
   border: 1px #aaa solid;
@@ -71,6 +72,7 @@
   background-color: #ffc632;
   font-weight: bold;
   border-bottom-left-radius: 3px;
+	color: #444;
 }
 .table-cell .description {
 	margin-top: 0;

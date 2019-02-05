@@ -51,8 +51,8 @@
 	}
 }
 .content {
-	margin-left: 17%;
-	width: 66%;
+	margin-left: 14%;
+	width: 76%;
 }
 .content .flex-container {
 	margin-top: 40px;
@@ -61,9 +61,9 @@
 }
 .content .flex-container img {
 	width: auto;
-	height: 240px;
+	height: 360px;
 	border-radius: 8px;
-	max-width: 50%;
+	max-width: 70%;
 }
 .content .flex-container h2 {
 	margin-bottom: 30px;
@@ -71,13 +71,13 @@
 }
 .content .flex-container div {
 	font-size: 16px;
-	width: 50%;
+	width: 60%;
 }
 .content .flex-container div>div {
 	width: 74%;
 	position: relative;
 }
-.content .flex-container div a {
+.content .flex-container div .details {
 	display: block;
 	margin-top: 24px;
 	color: #90CAF9;
