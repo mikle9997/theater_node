@@ -262,3 +262,6 @@ div.first-block {
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
 }
+p.free-admission {
+	padding-top: 7px;
+}
