@@ -3,7 +3,6 @@ let colMenu = document.querySelector('#resp-menu')
 let opCir = document.querySelector('#opening-circle')
 let checkVar = [false, false]
 let lastPoint
-let page = document.querySelector('body').getAttribute('data-page')
 let scrollProgress = document.querySelector('#scroll-progress')
 let header = document.querySelector('.header')
 let headerLink = document.querySelectorAll('.header a')
@@ -46,31 +45,38 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (document.querySelector('.description'))
 		document.querySelector('.description').innerHTML = document.querySelector('.description')
 		.innerHTML.replace(/&lt;br&gt;/g, '<br>')
+
+		if (document.querySelector('.footer').getBoundingClientRect().bottom < window.innerHeight) {
+			document.querySelector('.footer').style['position'] = 'absolute'
+			document.querySelector('.footer').style['left'] = '0'
+			document.querySelector('.footer').style['bottom'] = '0'
+			document.querySelector('.footer').style['width'] = '100%'
+			document.querySelector('body').style['padding-bottom'] = document.querySelector('.footer').clientHeight + 'px'
+		}
 })
 
 window.addEventListener('scroll', scrolling)
 
 function scrolling() {
-	if (page == 'index') {
-		if ((document.querySelector('.first-block').getBoundingClientRect().bottom <= 0)
-			&& (window.pageYOffset < lastPoint)) {
-			openMenuS()
-			scrollProgress.style['top'] = '52px'
-			scrollProgress.style['transition'] = '.3s'
-		} else {
-			header.style['position'] = 'absolute'
-			header.style['background-color'] = 'transparent'
-			headerLink.forEach( obj => {
-				obj.style['color'] = '#fff'
-			})
-			colBtn.style['color'] = '#eee'
-			if (document.querySelector('.first-block').getBoundingClientRect().bottom <= 0) {
-				header.style['top'] = '-52px'
-			}
-			checkVar[1] = false
-			scrollProgress.style['top'] = 0
-			scrollProgress.style['transition'] = '0s'
-		}}
+	if ((document.querySelector('.first-block').getBoundingClientRect().bottom <= 0)
+		&& (window.pageYOffset < lastPoint)) {
+		openMenuS()
+		scrollProgress.style['top'] = '52px'
+		scrollProgress.style['transition'] = '.3s'
+	} else {
+		header.style['position'] = 'absolute'
+		header.style['background-color'] = 'transparent'
+		headerLink.forEach( obj => {
+			obj.style['color'] = '#fff'
+		})
+		colBtn.style['color'] = '#eee'
+		if (document.querySelector('.first-block').getBoundingClientRect().bottom <= 0) {
+			header.style['top'] = '-52px'
+		}
+		checkVar[1] = false
+		scrollProgress.style['top'] = 0
+		scrollProgress.style['transition'] = '0s'
+	}
 
 	lastPoint = window.pageYOffset
 

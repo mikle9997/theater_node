@@ -1,6 +1,6 @@
 window.addEventListener('scroll', _ => {
-  if (window.pageYOffset > document.body.scrollHeight - window.innerHeight * 1.5);
-    console.log('The End');
+  if (window.pageYOffset > document.body.scrollHeight - window.innerHeight * 1.5)
+    console.log(document.querySelectorAll('*[data-id]')[document.querySelectorAll('*[data-id]').length - 1].dataset.id)
 
     // const num = 1;
 

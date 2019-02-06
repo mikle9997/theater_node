@@ -7,7 +7,7 @@
 		<div class="content">
 			<% news.forEach( function (post) { %>
 				<a href="news-page/<%= post.id %>">
-					<div class="flex-container">
+					<div class="flex-container" data-id="<%= post.id %>">
 						<div>
 							<div>
 								<h2><%= post.title %></h2>
@@ -20,6 +20,7 @@
 					</div>
 				</a>
 			<% }); %>
+		</div>
 	</div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
