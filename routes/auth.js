@@ -9,73 +9,75 @@ router.get("/", (req, res) => {
 });
 
 router.get("/registration", (req, res) => {
-  res.render("registration");
+  res.redirect("/");
+  // res.render("registration");
 });
 
 // POST Registration
 router.post("/registration", async (req, res) => {
-  const { login, password, passwordConfirm } = req.body;
-  try {
-    const users = await db.users.getByLogin( login );
-    const user = users[0];
+  res.redirect("/");
+  // const { login, password, passwordConfirm } = req.body;
+  // try {
+  //   const users = await db.users.getByLogin( login );
+  //   const user = users[0];
 
-    if ( !user) {
-      if (!login || !password || !passwordConfirm) {
-        const fields = [];
-        if (!login) fields.push("login");
-        if (!password) fields.push("password");
-        if (!passwordConfirm) fields.push("passwordConfirm");
+  //   if ( !user) {
+  //     if (!login || !password || !passwordConfirm) {
+  //       const fields = [];
+  //       if (!login) fields.push("login");
+  //       if (!password) fields.push("password");
+  //       if (!passwordConfirm) fields.push("passwordConfirm");
 
-        res.json({
-          ok: false,
-          error: "Все поля должны быть заполнены!",
-          fields
-        });
-      } else if (login.length < 3 || login.length > 16) {
-        res.json({
-          ok: false,
-          error: "Длина логина от 3 до 16 символов!",
-          fields: ["login"]
-        });
-      } else if (password !== passwordConfirm) {
-        res.json({
-          ok: false,
-          error: "Пароли не совпадают",
-          fields: ["password", "passwordConfirm"]
-        });
-      } else {
-        bcrypt.hash(password, null, null, async function(err, hash) {
-          try {
-            await db.users.createUser(login, hash);
-            const newUser = await db.users.getByLogin(login);
+  //       res.json({
+  //         ok: false,
+  //         error: "Все поля должны быть заполнены!",
+  //         fields
+  //       });
+  //     } else if (login.length < 3 || login.length > 16) {
+  //       res.json({
+  //         ok: false,
+  //         error: "Длина логина от 3 до 16 символов!",
+  //         fields: ["login"]
+  //       });
+  //     } else if (password !== passwordConfirm) {
+  //       res.json({
+  //         ok: false,
+  //         error: "Пароли не совпадают",
+  //         fields: ["password", "passwordConfirm"]
+  //       });
+  //     } else {
+  //       bcrypt.hash(password, null, null, async function(err, hash) {
+  //         try {
+  //           await db.users.createUser(login, hash);
+  //           const newUser = await db.users.getByLogin(login);
 
-            req.session.userId = newUser.id;  
-            req.session.userLogin = newUser.login;
+  //           req.session.userId = newUser.id;  
+  //           req.session.userLogin = newUser.login;
 
-            res.json({
-              ok: true
-            });
-          } catch (err) {
-            console.log(err);
-            res.json({
-              ok: false,
-              error: "Ошибка попробуйте позже!"
-            });
-          }
-        });
-      }
-    } else {
-      res.json({
-        ok: false,
-        error: "Имя занято",
-        fields: ["login"]
-      });
-    }
-  } catch (error) {
-    console.log(error);
+  //           res.json({
+  //             ok: true
+  //           });
+  //         } catch (err) {
+  //           console.log(err);
+  //           res.json({
+  //             ok: false,
+  //             error: "Ошибка попробуйте позже!"
+  //           });
+  //         }
+  //       });
+  //     }
+  //   } else {
+  //     res.json({
+  //       ok: false,
+  //       error: "Имя занято",
+  //       fields: ["login"]
+  //     });
+  //   }
+  // } catch (error) {
+  //   console.log(error);
     
-    throw new Error("Server Error");
-  }
+  //   throw new Error("Server Error");
+  // }
 });
 
 // Login
