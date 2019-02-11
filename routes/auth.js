@@ -16,7 +16,9 @@ router.get("/registration", (req, res) => {
 router.post("/registration", async (req, res) => {
   const { login, password, passwordConfirm } = req.body;
   try {
-    const user = await db.users.getByLogin( login );    
+    const users = await db.users.getByLogin( login );
+    const user = users[0];
+
     if ( !user) {
       if (!login || !password || !passwordConfirm) {
         const fields = [];
