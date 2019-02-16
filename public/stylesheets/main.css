@@ -11,6 +11,7 @@ body {
 	background-attachment: fixed;
 	-webkit-background-size: cover;
 	background-size: cover;
+	position: relative;
 }
 a {
 	text-decoration: none;
@@ -228,6 +229,10 @@ div.first-block {
 	padding: 40px 3%;
 	position: relative;
 	margin-top: 50px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 }
 .contact-footer {
 	display: inline-block;

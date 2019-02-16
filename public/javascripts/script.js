@@ -45,14 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (document.querySelector('.description'))
 		document.querySelector('.description').innerHTML = document.querySelector('.description')
 		.innerHTML.replace(/&lt;br&gt;/g, '<br>')
+		
+	document.querySelector('body').style['padding-bottom'] = document.querySelector('.footer').clientHeight + 'px'
 
-		if (document.querySelector('.footer').getBoundingClientRect().bottom < window.innerHeight) {
-			document.querySelector('.footer').style['position'] = 'absolute'
-			document.querySelector('.footer').style['left'] = '0'
-			document.querySelector('.footer').style['bottom'] = '0'
-			document.querySelector('.footer').style['width'] = '100%'
-			document.querySelector('body').style['padding-bottom'] = document.querySelector('.footer').clientHeight + 'px'
-		}
 })
 
 window.addEventListener('scroll', scrolling)
