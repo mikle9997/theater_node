@@ -9,6 +9,7 @@
 	justify-content: center;
 	-ms-align-items: center;
 	align-items: center;
+	padding-bottom: 20px;
 }
 .about-card {
   width: 80%;
