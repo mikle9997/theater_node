@@ -27,7 +27,7 @@ router.post( "/", ( req, res ) => {
   if (!userLogin || !userId) {
     res.redirect('/auth');
   } else {
-    let fileName = "";
+    let filePathName = "";
     const storage = multer.diskStorage( {
       destination: ( req, file, cb ) => {
         cb( null, './public/images/gallery' );
@@ -36,7 +36,7 @@ router.post( "/", ( req, res ) => {
         const filePath = Date.now().toString(16) + path.extname(file.originalname);
         cb(null, filePath);
 
-        fileName = filePath;
+        filePathName = filePath;
       }
     });
     const upload = multer({
@@ -59,7 +59,7 @@ router.post( "/", ( req, res ) => {
     }).single("file");
     
     upload( req, res, err => {
-      item = req.body.item;
+      let item = req.body.item;
       let error = "";
       if (err) {
         if (err.code === "EXTENTION") {
@@ -67,11 +67,11 @@ router.post( "/", ( req, res ) => {
         } else {
           error = err.code;
         }
-      } else if ( fileName == "" ) {
+      } else if ( filePathName == "" ) {
         err = true;
         error = "Файл не выбран!"
       } else {
-        db.media.insertData( '/images/gallery/' + fileName, item );
+        db.media.insertData( '/images/gallery/' + filePathName, item );
       }
       res.json({
         ok: !err,

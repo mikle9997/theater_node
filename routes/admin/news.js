@@ -48,6 +48,8 @@ router.post('/add', async ( req, res, next ) => {
     res.redirect('/auth');
   } else {
     const {name, author, text, date, time, duration, place, producer, choreographer, actors, img} = req.body;
+    console.log(text);
+    
     await db.news.createPost(name, author, text, date, time, duration, place, producer, choreographer, actors, img);
     res.send();
   }
