@@ -9,6 +9,8 @@ const newsPageRouter = require('./routes/news_page');
 const adminRouter = require('./routes/admin');
 const authRouter = require('./routes/auth');
 
+const config = require('./config');
+
 const app = express();
 
 const cookieSession = require('cookie-session');
@@ -27,6 +29,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+if (process.env.NODE_ENV != "development") {
+  app.use( (request, response) => {
+    if(!request.secure)
+      response.redirect("https://" + request.headers.host + request.url);
+  });
+}
 
 app.use('/', indexRouter);
 app.use('/news-page', newsPageRouter);
