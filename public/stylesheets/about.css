@@ -1,36 +1,50 @@
-.about-wrapper {
-	width: 100%;
-	padding-top: 100px;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
+.about-title {
+	background: 
+		linear-gradient(135deg, #333 25%, transparent 25%) -50px 0,
+		linear-gradient(225deg, #333 25%, transparent 25%) -50px 0,
+		linear-gradient(315deg, #333 25%, transparent 25%),
+		linear-gradient(45deg, #333 25%, transparent 25%);
+	background-size: 2em 2em;
+	background-color: #222;
+	padding: 120px;
+	text-align: center;
+	color: #eee;
+}
+.about-title:nth-child(2) {
+	background:
+		linear-gradient(135deg, #333 21px, #222 22px, #222 24px, transparent 24px, transparent 67px, #222 67px, #222 69px, transparent 69px),
+		linear-gradient(225deg, #333 21px, #222 22px, #222 24px, transparent 24px, transparent 67px, #222 67px, #222 69px, transparent 69px)0 64px;
+	background-color:#333;
+	background-size: 64px 128px;
+}
+.about-title:nth-child(3) {
+	background-color:#333;
+	background-image: 
+		linear-gradient(30deg, #222 12%, transparent 12.5%, transparent 87%, #222 87.5%, #222),
+		linear-gradient(150deg, #222 12%, transparent 12.5%, transparent 87%, #222 87.5%, #222),
+		linear-gradient(30deg, #222 12%, transparent 12.5%, transparent 87%, #222 87.5%, #222),
+		linear-gradient(150deg, #222 12%, transparent 12.5%, transparent 87%, #222 87.5%, #222),
+		linear-gradient(60deg, #555 25%, transparent 25.5%, transparent 75%, #555 75%, #555),
+		linear-gradient(60deg, #555 25%, transparent 25.5%, transparent 75%, #555 75%, #555);
+	background-size:80px 140px;
+	background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+div.about-wrapper {
 	display: flex;
 	justify-content: center;
-	-ms-align-items: center;
-	align-items: center;
-	padding-bottom: 20px;
-}
-.about-card {
-  width: 80%;
-	background-color: #fff;
-	box-sizing: border-box;
-	border-radius: 3px;
-	box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-	padding: 37px 50px 20px 50px;
-	color: #333;
+	padding: 30px;
+	background-color: #333;
 }
 .about-block {
 	margin-bottom: 25px;
+	background-color: #fff;
+	margin: 20px;
+	padding: 20px;
+	width: 280px;
 }
-.about-card h2 {
+.about-block h2 {
 	color: #313131;
-	/* font-weight: normal; */
-	/* padding: 30px; */
-	/* line-height: 24px; */
-}
-.about-card h2 span {
-	color: #555;
+	text-align: center;
 }
 @media (max-width: 992px) {
 	.about-card {

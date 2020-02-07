@@ -1,6 +1,6 @@
 .afish-page-wrapper {
 	width: 100%;
-	padding: 100px 0;
+	padding: 150px 0;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -60,7 +60,7 @@
   font-size: 54px;
 }
 .date .month {
-  margin-top: -15px;
+  margin-top: -12px;
   font-size: 14px;
 }
 .date .time {
@@ -93,6 +93,9 @@ p.free-admission {
 	grid-template-areas: "img text text";
 }
 @media (max-width: 1000px) {
+  .afish-page-wrapper {
+    padding: 100px 0;
+  }
   .wrapper {
     padding: 10vh 0;
   }
