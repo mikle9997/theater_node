@@ -1,7 +1,7 @@
 <% include header-admin %>
 	<div class="section-1">
 			<ul class="list">
-				<li><a href="/admin"><i class="th-home"></i> Главная</a></li>
+				<li><a href="/admin">Главная</a></li>
 				<li><a href="/admin/news"><i class="th-pin"></i> Записи</a></li>
 				<li class="active"><a href="actors"><i class="th-group"></i> Актеры</a></li>
 				<li><a href="/admin/imgs"><i class="th-picture"></i> Медиафайлы</a></li>
@@ -27,7 +27,7 @@
 								<div class="text">
 									<h4><%= actor.name %> <%= actor.secname %></h4>
 									<p><%= actor.role %></p>
-									<a href="/admin/actors/edit/<%= actor.id %>" class="href-btn ok"><i class="th-edit"></i> Изменить</a>
+									<a href="/admin/actors/edit/<%= actor.id %>" class="href-btn ok"><i class="th-pencil"></i> Изменить</a>
 									<button class="href-btn danger" onclick="deleteActor(<%= actor.id %>)"><i class="th-trash"></i> Удалить</button>
 								</div>
 							</div>

@@ -1,7 +1,7 @@
 <% include header-admin %>
 	<div class="section-1">
 			<ul class="list">
-				<li><a href="/admin"><i class="th-home"></i> Главная</a></li>
+				<li><a href="/admin">Главная</a></li>
 				<li class="active"><a href="/admin/news"><i class="th-pin"></i> Записи</a></li>
 				<li><a href="/admin/actors"><i class="th-group"></i> Актеры</a></li>
 				<li><a href="/admin/imgs"><i class="th-picture"></i> Медиафайлы</a></li>
@@ -40,7 +40,7 @@
 									<h4><%= post.title %></h4>
 									<p><%= post.text.substring(0,100) %>...</p>
 									<p class="date"><%= moment(post.date).format('DD-MM-YYYY') %></p>
-									<a href="/admin/news/edit/<%= post.id %>" class="href-btn ok"><i class="th-edit"></i> Изменить</a>
+									<a href="/admin/news/edit/<%= post.id %>" class="href-btn ok"><i class="th-pencil"></i> Изменить</a>
 									<button class="href-btn danger" onclick="deleteNews(<%= post.id %>)"><i class="th-trash"></i> Удалить</button>
 								</div>
 							</div>

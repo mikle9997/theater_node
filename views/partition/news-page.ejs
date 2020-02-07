@@ -4,22 +4,25 @@
 <% include header %>
 	<div class="afish-page-wrapper">
 		<div class="news-block">
-			<div class="table-cell image-cell">
+			<div class="table-cell image-cell news-page">
 				<img src="<%= post.img %>" alt="img">
 			</div>
-			<div class="table-cell text-cell">
-				<span class="clocks"><i class="far fa-clock"></i> <%= moment(post.date).format('DD-MM-YYYY') %> в <%= post.time %></span>
+			<div class="table-cell text-cell news-page">
+				<div class="date">
+					<p class="number"><%= new Date(post.date).toDateString().split(' ')[2] %></p>
+					<p class="month"><%= ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'][new Date(post.date).getMonth()] %></p>
+					<p class="time"><i class="th-clock"></i><%= post.time %></p>
+				</div>
 				<h2 class="first-block"><%= post.title %></h2>
-				<p class="author"><%= post.author %></p>
-				<hr>
-				<p><span>Длительность</span>: <%= post.duration %></p>
-				<p><span>Место</span>: <%= post.place %></p>
-				<p><span>Режиссер</span>: <%= post.producer %></p>
-				<p><span>Хореограф</span>: <%= post.choreographer %></p>
-				<p><span>Актеры</span>: <%= post.actors %></p>
+				<p><i class="th-author"></i><%= post.author %></p>
+				<p><i class="th-location"></i><%= post.place %></p>
+				<p>Длительность: <%= post.duration %></p>
+				<p>Режиссер: <%= post.producer %></p>
+				<p>Хореограф: <%= post.choreographer %></p>
+				<p><i class="th-group"></i><%= post.actors %></p>
 			</div>
 			<div class="table-cell description-cell">
-				<p class="description"><%= post.text %></p>
+				<p class="description"><i class="th-description"></i><%= post.text %></p>
 			</div>
 		</div>
 	</div>

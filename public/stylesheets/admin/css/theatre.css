@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'theater';
-  src: url('../font/theater.eot?2527795');
-  src: url('../font/theater.eot?2527795#iefix') format('embedded-opentype'),
-       url('../font/theater.woff2?2527795') format('woff2'),
-       url('../font/theater.woff?2527795') format('woff'),
-       url('../font/theater.ttf?2527795') format('truetype'),
-       url('../font/theater.svg?2527795#theater') format('svg');
+  font-family: 'theatre';
+  src: url('../font/theatre.eot?39413319');
+  src: url('../font/theatre.eot?39413319#iefix') format('embedded-opentype'),
+       url('../font/theatre.woff2?39413319') format('woff2'),
+       url('../font/theatre.woff?39413319') format('woff'),
+       url('../font/theatre.ttf?39413319') format('truetype'),
+       url('../font/theatre.svg?39413319#theatre') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,14 +14,14 @@
 /*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-    font-family: 'theater';
-    src: url('../font/theater.svg?2527795#theater') format('svg');
+    font-family: 'theatre';
+    src: url('../font/theatre.svg?39413319#theatre') format('svg');
   }
 }
 */
  
  [class^="th-"]:before, [class*=" th-"]:before {
-  font-family: "theater";
+  font-family: "theatre";
   font-style: normal;
   font-weight: normal;
   speak: none;
@@ -55,12 +55,13 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.th-edit:before { content: '\e800'; } /* '' */
-.th-group:before { content: '\e801'; } /* '' */
-.th-folder:before { content: '\e802'; } /* '' */
-.th-home:before { content: '\e803'; } /* '' */
-.th-picture:before { content: '\e804'; } /* '' */
-.th-pin:before { content: '\e805'; } /* '' */
-.th-upload:before { content: '\e806'; } /* '' */
-.th-trash:before { content: '\e807'; } /* '' */
-.th-doc:before { content: '\f15c'; } /* '' */
+.th-location:before { content: '\e800'; } /* '' */
+.th-pencil:before { content: '\e801'; } /* '' */
+.th-clock:before { content: '\e802'; } /* '' */
+.th-trash:before { content: '\e803'; } /* '' */
+.th-group:before { content: '\e804'; } /* '' */
+.th-picture:before { content: '\e805'; } /* '' */
+.th-pin:before { content: '\e806'; } /* '' */
+.th-author:before { content: '\e807'; } /* '' */
+.th-folder:before { content: '\f115'; } /* '' */
+.th-description:before { content: '\f1ea'; } /* '' */
