@@ -51,55 +51,77 @@
 	}
 }
 .content {
-	margin-left: 14%;
-	width: 76%;
+	margin: 0 auto;
+	width: 960px;
+	margin-bottom: 60px;
 }
-.content .flex-container {
-	margin-top: 40px;
-	margin-bottom: 100px;
-	align-items: stretch;
+.grid-container {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 3fr 2fr;
+	margin: 30px 0;
 }
-.content .flex-container img {
-	width: auto;
-	height: 360px;
-	border-radius: 8px;
-	max-width: 70%;
+.grid-container img {
+	width: 80%;
+	margin-left: 10%;
 }
-.content .flex-container h2 {
+.grid-container h2 {
 	margin-bottom: 30px;
 	font-size: 24px;
 }
-.content .flex-container div {
+.description {
 	font-size: 16px;
-	width: 60%;
 }
-.content .flex-container div>div {
-	width: 74%;
-	position: relative;
-}
-.content .flex-container div .details {
-	display: block;
-	margin-top: 24px;
+.details {
 	color: #90CAF9;
-	position: absolute;
-	left: 0;
-	bottom: -40px;
+	margin-top: 10px;
 }
-.content .flex-container footer {
-	position: absolute;
-	right: 0;
-	bottom: -40px;
-	font-size: 14px;
-}
-.pagination {
+.date {
 	text-align: center;
-	padding-bottom: 40px;
 }
-.pagination span {
-	padding-left: 8px;
-	padding-right: 8px;
-	cursor: pointer;
+.date .number {
+  font-size: 54px;
 }
-.active-pag {
-	color: #FFB300;
+.date .month {
+  margin-top: -12px;
+  font-size: 14px;
+}
+.date .year {
+	font-size: 25px;
+	margin-top: -3px;
+}
+.date .time {
+  font-size: 14px;
+}
+.date .time i {
+  font-size: 12px;
+  margin-right: 3px;
+}
+@media (max-width: 1000px) {
+	.grid-container {
+		display: flex;
+		flex-direction: column;
+		order: 1;
+	}
+	.date {
+		order: 2;
+		background-color: #fff;
+		margin: 0 10%;
+		margin-top: -4px;
+		padding-top: 10px;
+		color: #555;
+	}
+	.description {
+		padding: 20px;
+		margin: 0 10%;
+		order: 3;
+		background-color: #fff;
+		color: #777;
+	}
+	.description h2 {
+		color: #555;
+	}
+	.details {
+		color: #03A9F4;
+	}
 }

@@ -12,6 +12,7 @@ body {
 	-webkit-background-size: cover;
 	background-size: cover;
 	position: relative;
+	min-height: 100vh;
 }
 a {
 	text-decoration: none;

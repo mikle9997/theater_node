@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="/stylesheets/slideshow.css">
 	<link rel="stylesheet" href="/stylesheets/card.css">
 	<link rel="stylesheet" href="/stylesheets/post.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link rel="stylesheet" href="/stylesheets/admin/css/theatre.css">
 </head>
 <body data-page="index">
 	<div id="opening-circle"></div>
@@ -70,12 +70,16 @@
 						<img src="<%= main.img %>" alt="img">
 					</div>
 					<div class="table-cell text-cell">
-						<span class="clocks"><i class="far fa-clock"></i> <%= moment(main.date).format('DD-MM-YYYY') %> в <%= main.time %></span>
 						<h2><%= main.title %></h2>
-						<p class="author"><%= main.author %></p>
-						<p><span>Место:</span> <%= main.place %></p>
-						<p><%= main.text.substring(0,288) %>...</p>
-						<p class="free-admission"><span >Вход свободный</span></p>
+						<div class="date">
+							<p class="number"><%= new Date(main.date).toDateString().split(' ')[2] %></p>
+							<p class="month"><%= ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября','Октября','Ноября','Декабря'][new Date(main.date).getMonth()] %></p>
+							<p class="time"><i class="th-clock"></i><%= main.time %></p>
+						</div>
+						<p><i class="th-author"></i><%= main.author %></p>
+						<p><i class="th-location"></i><%= main.place %></p>
+						<p><i class="th-description"></i><%= main.text.substring(0,180) %>...</p>
+						<p class="free-admission">Вход свободный</p>
 					</div>
 				</div>
 		</a>
