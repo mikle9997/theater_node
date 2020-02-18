@@ -1,21 +1,15 @@
-
-const sum = (arr) => arr.reduce((acc, x) => Array.isArray(x) ? acc + sum(x) : acc + x, 0)
-
-const check_diff= (arr, n) => {
-  const ideal_weight = sum(arr) / n  
-  return arr.reduce((acc, x) => acc + Math.abs(ideal_weight - sum(x)),0)
-}
-
 const split_into_groups = (arr, n) => {
   arr.sort((a,b) => { return a < b })
 
-  const res = []
-  for (let i = 0; i < n; i++) { res.push([]) }
+  const res     = []
+  const res_sum = []
+  for (let i = 0; i < n; i++) { res.push([]); res_sum.push(0); }
 
   for (const el of arr) {
-    for (let i = 0; i < res.length; i++) {
-      if (i+1 == res.length || sum(res[i]) <= sum(res[i+1])) {
+    for (let i = 0; i < n; i++) {
+      if (i+1 == res.length || res_sum[i] < res_sum[i+1]) {
         res[i].push(el)
+        res_sum[i] += el
         break
       }
     }
@@ -24,7 +18,6 @@ const split_into_groups = (arr, n) => {
 }
 
 const x = [9,11,16,4,3,16,3,10]
-const n = 2
+const n = 4
 
 console.log(split_into_groups(x,n))
-console.log(check_diff(split_into_groups(x),n))
