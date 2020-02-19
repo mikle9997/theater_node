@@ -90,6 +90,8 @@
 	-webkit-transition: .3s;
 	-o-transition: .3s;
 	transition: .3s;
+	font-size: 20px;
+	color: #eee;
 }
 .content-gal .col div:hover p {
 	-webkit-transform: translateY(0);

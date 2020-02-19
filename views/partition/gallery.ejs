@@ -12,7 +12,7 @@
 				<% for (let i=0; i < gallery.length; i+=3) { %>
 					<div onclick="currentSlide(this)">
 						<img src="<%= gallery[i].img %>" alt="img">
-						<p><i class="fas fa-search-plus"></i></p>
+						<p>+</p>
 					</div>
 				<% } %>
 			</div>
@@ -20,7 +20,7 @@
 				<% for (let i=1; i < gallery.length; i+=3) { %>
 					<div onclick="currentSlide(this)">
 						<img src="<%= gallery[i].img %>" alt="img">
-						<p><i class="fas fa-search-plus"></i></p>
+						<p>+</p>
 					</div>
 				<% } %>
 			</div>
@@ -28,10 +28,11 @@
 				<% for (let i=2; i < gallery.length; i+=3) { %>
 					<div onclick="currentSlide(this)">
 						<img src="<%= gallery[i].img %>" alt="img">
-						<p><i class="fas fa-search-plus"></i></p>
+						<p>+</p>
 					</div>
 				<% } %>
 			</div>
+		</div>
 	</div>
 	<div class="modal-img">
 
@@ -45,5 +46,5 @@
 	</div>
 
 	<script src="/javascripts/script.js"></script>
-	<script src="/javascripts/modalIMG.js"></script>
+	<script src="/javascripts/gallery.js"></script>
 <% include footer %>

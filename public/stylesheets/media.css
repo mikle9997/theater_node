@@ -1,4 +1,4 @@
-@media (max-width: 992px) {
+@media (max-width: 1000px) {
 	.menu {
 		display: none;
 	}
@@ -74,6 +74,9 @@
 	}
 	.afish-page {
 		width: 80%;
+	}
+	.head-text::before {
+		bottom: 20px;
 	}
 }
 @media (max-width: 850px) {

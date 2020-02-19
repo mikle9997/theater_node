@@ -121,9 +121,13 @@ span.active, .dots span:hover {
 	}
 	.about-title:first-child {
 		padding-top: 52px;
-	} 
+	}
+	.about-block {
+		padding: 20px;
+		padding-bottom: 60px;
+	}
 	.about-title {
-		line-height: 120px;
+		line-height: 160px;
 	}
 	.about-card {
 		height: auto;
